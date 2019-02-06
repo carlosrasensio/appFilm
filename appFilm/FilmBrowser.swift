@@ -12,6 +12,14 @@ class FilmBrowser: UIViewController {
     
     @IBOutlet var inputTextField: UITextField!
     
+    @IBOutlet var titleLabel: UILabel!
+    
+    @IBOutlet var overviewTextView: UITextView!
+    
+    @IBAction func recommendButton(_ sender: UIButton) {
+    }
+    
+    
     @IBAction func addButton(_ sender: UIButton) {
        /*
         // Línea a continuación SIEMPRE en CoreData:
