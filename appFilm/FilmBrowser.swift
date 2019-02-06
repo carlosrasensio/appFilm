@@ -23,7 +23,16 @@ class FilmBrowser: UIViewController {
         
         let input = inputTextField.text // Se asigna aquí lo que escribimos en el inputTextField.
         print(input!)   // Se muestra por consola el input.
-        getRecommendedFilm(film: input!, apiKey: apiKey)    // Se llama a la función que recomienda la película.
+        if (inputTextField.text?.isEmpty)! {
+            
+            let message = "Para poder ayudarte tienes que introducir una película en el recomendador."
+            showAlert(message: message)
+            
+        } else {
+            
+            getRecommendedFilm(film: input!, apiKey: apiKey)    // Se llama a la función que recomienda la película.
+            
+        }
         
     }
     
@@ -34,8 +43,19 @@ class FilmBrowser: UIViewController {
         // Creamos la película:
         let film = Film(context: context)
         film.name = titleLabel.text // El atributo name lo sacamos del titleLabel.
-        // Se guardan los datos. La función saveContext() está en el AppDelegate.
-        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        
+        // Se comprueba si se ha escrito algo en el inputTextField para que no se rellene la tabla con celdas vacias:
+        if (inputTextField.text?.isEmpty)! {
+            
+            let message = "Para añadir a la lista hay que introducir una película en el recomendador primero"
+            showAlert(message: message)
+    
+        } else {
+            
+           (UIApplication.shared.delegate as! AppDelegate).saveContext()    // Se guardan los datos. La función saveContext() está en el AppDelegate.
+            
+        }
+        
         navigationController?.popViewController(animated: true) // Se asigna a qué vista se envía el dato.
         
     }
@@ -126,6 +146,21 @@ class FilmBrowser: UIViewController {
         }
         
         return output
+        
+    }
+    
+    func showAlert(message : String) -> Void { // Función para sacar un mensaje en una alerta.
+        
+        let alert = UIAlertController(title: "¡Acción incorrecta!", message: message, preferredStyle: .alert)   // Se crea la propia alerta con un mensaje que se introduce posteriormente.
+        
+        let actionOK = UIAlertAction(title: "OK", style: UIAlertAction.Style.default) { _ in    // Se crea el la opción de cerrar la alerta una vez entendido el mensaje pulsando un botón.
+            
+            alert.dismiss(animated: true, completion: nil) // Una vez se pulsa el accionOK, se elimina la alerta.
+            
+        }
+        
+        alert.addAction(actionOK)  // Se añade la actionOK a la alerta.
+        self.present(alert, animated: true, completion: nil)   // Presentación de la alerta.
         
     }
     

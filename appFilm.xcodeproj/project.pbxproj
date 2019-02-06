@@ -50,7 +50,6 @@
 		DDC11708220A49FB003B1B01 = {
 			isa = PBXGroup;
 			children = (
-				DD13B846220A888600F5F3A4 /* TvBrowser.swift */,
 				DDC11713220A49FB003B1B01 /* appFilm */,
 				DDC11712220A49FB003B1B01 /* Products */,
 			);
@@ -68,10 +67,11 @@
 			isa = PBXGroup;
 			children = (
 				DDC11714220A49FB003B1B01 /* AppDelegate.swift */,
+				DD13B83E220A807600F5F3A4 /* Menu.swift */,
 				DD13B844220A87EF00F5F3A4 /* TvTable.swift */,
+				DD13B846220A888600F5F3A4 /* TvBrowser.swift */,
 				DDC11716220A49FB003B1B01 /* ViewController.swift */,
 				DDC11729220A4AF4003B1B01 /* FilmBrowser.swift */,
-				DD13B83E220A807600F5F3A4 /* Menu.swift */,
 				DDC11718220A49FB003B1B01 /* Main.storyboard */,
 				DDC1171E220A49FC003B1B01 /* Assets.xcassets */,
 				DDC11720220A49FC003B1B01 /* LaunchScreen.storyboard */,
