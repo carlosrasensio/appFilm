@@ -13,6 +13,7 @@
 		DDC1171D220A49FB003B1B01 /* appFilm.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DDC1171B220A49FB003B1B01 /* appFilm.xcdatamodeld */; };
 		DDC1171F220A49FC003B1B01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDC1171E220A49FC003B1B01 /* Assets.xcassets */; };
 		DDC11722220A49FC003B1B01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDC11720220A49FC003B1B01 /* LaunchScreen.storyboard */; };
+		DDC1172A220A4AF4003B1B01 /* FilmBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC11729220A4AF4003B1B01 /* FilmBrowser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		DDC1171E220A49FC003B1B01 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DDC11721220A49FC003B1B01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DDC11723220A49FC003B1B01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDC11729220A4AF4003B1B01 /* FilmBrowser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmBrowser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			children = (
 				DDC11714220A49FB003B1B01 /* AppDelegate.swift */,
 				DDC11716220A49FB003B1B01 /* ViewController.swift */,
+				DDC11729220A4AF4003B1B01 /* FilmBrowser.swift */,
 				DDC11718220A49FB003B1B01 /* Main.storyboard */,
 				DDC1171E220A49FC003B1B01 /* Assets.xcassets */,
 				DDC11720220A49FC003B1B01 /* LaunchScreen.storyboard */,
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDC1172A220A4AF4003B1B01 /* FilmBrowser.swift in Sources */,
 				DDC1171D220A49FB003B1B01 /* appFilm.xcdatamodeld in Sources */,
 				DDC11717220A49FB003B1B01 /* ViewController.swift in Sources */,
 				DDC11715220A49FB003B1B01 /* AppDelegate.swift in Sources */,
