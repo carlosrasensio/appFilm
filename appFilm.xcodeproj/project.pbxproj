@@ -11,6 +11,7 @@
 		DD13B843220A838100F5F3A4 /* Logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DD13B842220A838100F5F3A4 /* Logo.jpg */; };
 		DD13B845220A87EF00F5F3A4 /* TvTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD13B844220A87EF00F5F3A4 /* TvTable.swift */; };
 		DD13B847220A888600F5F3A4 /* TvBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD13B846220A888600F5F3A4 /* TvBrowser.swift */; };
+		DD14A07A220CF9C400AF65F0 /* Ruleta.png in Resources */ = {isa = PBXBuildFile; fileRef = DD14A079220CF9C400AF65F0 /* Ruleta.png */; };
 		DDC11715220A49FB003B1B01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC11714220A49FB003B1B01 /* AppDelegate.swift */; };
 		DDC11717220A49FB003B1B01 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC11716220A49FB003B1B01 /* ViewController.swift */; };
 		DDC1171A220A49FB003B1B01 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDC11718220A49FB003B1B01 /* Main.storyboard */; };
@@ -25,6 +26,7 @@
 		DD13B842220A838100F5F3A4 /* Logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Logo.jpg; sourceTree = "<group>"; };
 		DD13B844220A87EF00F5F3A4 /* TvTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvTable.swift; sourceTree = "<group>"; };
 		DD13B846220A888600F5F3A4 /* TvBrowser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvBrowser.swift; sourceTree = "<group>"; };
+		DD14A079220CF9C400AF65F0 /* Ruleta.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ruleta.png; sourceTree = "<group>"; };
 		DDC11711220A49FB003B1B01 /* appFilm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = appFilm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDC11714220A49FB003B1B01 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDC11716220A49FB003B1B01 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				DDC11723220A49FC003B1B01 /* Info.plist */,
 				DDC1171B220A49FB003B1B01 /* appFilm.xcdatamodeld */,
 				DD13B842220A838100F5F3A4 /* Logo.jpg */,
+				DD14A079220CF9C400AF65F0 /* Ruleta.png */,
 			);
 			path = appFilm;
 			sourceTree = "<group>";
@@ -141,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD13B843220A838100F5F3A4 /* Logo.jpg in Resources */,
+				DD14A07A220CF9C400AF65F0 /* Ruleta.png in Resources */,
 				DDC11722220A49FC003B1B01 /* LaunchScreen.storyboard in Resources */,
 				DDC1171F220A49FC003B1B01 /* Assets.xcassets in Resources */,
 				DDC1171A220A49FB003B1B01 /* Main.storyboard in Resources */,

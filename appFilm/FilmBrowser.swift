@@ -7,15 +7,13 @@
 //
 
 import UIKit
+import Speech
 
 class FilmBrowser: UIViewController {
     
     @IBOutlet var inputTextField: UITextField!
-    
     @IBOutlet var titleLabel: UILabel!
-    
     @IBOutlet var overviewTextView: UITextView!
-    
     let apiKey = "5d8bb741e4498fd5448bc0738a12eb52" // Clave de la API para cada usuario.
     var i = 0   // Se declara esta variable fuera para que el valor de i se vaya incrementando.
     
@@ -36,6 +34,13 @@ class FilmBrowser: UIViewController {
         
     }
     
+    @IBAction func microphoneInput(_ sender: Any) {
+        
+        
+        
+    }
+    
+    
     @IBAction func addButton(_ sender: UIButton) {
 
         // Se utiliza persistentContainer como vista de contexto. Lo lleva todo al AppDelegate (obligatorio en CoreData):
@@ -43,6 +48,8 @@ class FilmBrowser: UIViewController {
         // Creamos la película:
         let film = Film(context: context)
         film.name = titleLabel.text // El atributo name lo sacamos del titleLabel.
+        
+        // Utilizar STRUCT para los datos de la peli ¿¿??
         
         // Se comprueba si se ha escrito algo en el inputTextField para que no se rellene la tabla con celdas vacias:
         if (inputTextField.text?.isEmpty)! {
@@ -79,6 +86,9 @@ class FilmBrowser: UIViewController {
             
             // Se accede a los arreglos (datos de dentro que nos interesan) del archivo JSON:
             let idResultsArray: NSArray = (idJSON!["results"] as? NSArray)! // Se accede al arreglo.
+            
+            // SOLUCIONAR: cuando al pulsar el botón Recomendación (por 21ª vez) se llegue al final de la página 1, pasar a la página 2.
+            
             let idFilmInfo: NSDictionary = idResultsArray[0] as! NSDictionary    // Se ha entrado al arreglo.
             let id = idFilmInfo["id"] as? Int // Se coge el dato deseado del arreglo.
             let idString : String!
@@ -100,7 +110,7 @@ class FilmBrowser: UIViewController {
                 
                 let recomJSON = try JSONSerialization.jsonObject(with: recomData, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary   // Este código se usa SIEMPRE que se use JSON. Se convierte el archivo JSON en datos. Se usa NSDictionary porque se sabe que son datos de ese tipo. Hay que saber el tipo de dato que es.
                 
-                //Accedemos a los arreglos (datos de dentro que nos interesan) del archivo JSON:
+                // Se accede a los arreglos (datos de dentro que nos interesan) del archivo JSON:
                 let recomResultsArray: NSArray = (recomJSON!["results"] as? NSArray)! // Se accede al arreglo.
                 
                 // Se obtiene una recomendación cada vez que se pulsa el botón:
@@ -110,7 +120,7 @@ class FilmBrowser: UIViewController {
                 self.titleLabel.text = "\(title!)"    // Se muestra el titulo por el titleLabel.
                 i += 1  // Se incrementa el valor de i para que se obtengan más películas.
                 
-                let overview = recomFilmInfo["overview"] as? String //Cogemos el dato deseado del arreglo.
+                let overview = recomFilmInfo["overview"] as? String // Se coge el dato deseado del arreglo.
                 print(overview!)
                 self.overviewTextView.text = "\(overview!)"    // Se muestra el resumen por el resumenTextView.
             
