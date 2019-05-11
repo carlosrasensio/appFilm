@@ -28,7 +28,7 @@ class FilmBrowser: UIViewController {
             
         } else {
             
-            getRecommendedFilm(film: input!, apiKey: apiKey)    // Se llama a la función que recomienda la película.
+            getRecommendedFilm(filmInput: input!, apiKey: apiKey)    // Se llama a la función que recomienda la película.
             
         }
         
@@ -68,7 +68,9 @@ class FilmBrowser: UIViewController {
     }
     
     // Función que devuelve una película recomendada a la película pasada como input:
-    func getRecommendedFilm(film : String, apiKey : String) -> Void {
+    func getRecommendedFilm(filmInput : String, apiKey : String) -> Void {
+        
+        let film = modifyInputTMDB(input: filmInput)
         
         let idApiURL = "https://api.themoviedb.org/3/search/movie?api_key=\(apiKey)&language=es&query=\(film)" // URL de la API. Web donde entra la app para coger el archivo JSON.
         
@@ -136,7 +138,7 @@ class FilmBrowser: UIViewController {
     }
     
     // Función que modifica el input para que se adapte a las necesidades de la API:
-    func modifyInput(input : String) -> String {
+    func modifyInputTMDB(input : String) -> String {
         
         var inputArray = input.components(separatedBy: " ") // Se crea un array para separar las palabras del input. Cada posición del array contiene una palabra.
         let sizeArray = inputArray.count  // Se obtiene el tamaño del array.
@@ -151,6 +153,30 @@ class FilmBrowser: UIViewController {
             } else {    // Si ya se tiene la primera palabra.
                 
                 output = "\(output)+\(inputArray[i])"   // Se concatenan con un +, necesario para buscar en la API.
+                
+            }
+        }
+        
+        print("\nModified film: " + output)
+        return output
+        
+    }
+    
+    func modifyInputMC(input : String) -> String {
+        
+        var inputArray = input.components(separatedBy: " ") // Se crea un array para separar las palabras del input. Cada posición del array contiene una palabra.
+        let sizeArray = inputArray.count  // Se obtiene el tamaño del array.
+        var output : String = ""   // Se declara el output.
+        
+        for i in 0...sizeArray - 1 {  // Bucle for para recorrer el array.
+            
+            if (output == "") { // Si es la primera palabra del input.
+                
+                output = inputArray[0]
+                
+            } else {    // Si ya se tiene la primera palabra.
+                
+                output = "\(output)%\(inputArray[i])"   // Se concatenan con un %, necesario para buscar en la API.
                 
             }
         }
