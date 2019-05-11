@@ -15,15 +15,15 @@ class FilmBrowser: UIViewController {
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var overviewTextView: UITextView!
     let apiKey = "5d8bb741e4498fd5448bc0738a12eb52" // Clave de la API para cada usuario.
+    let apiKeyMC = "be81de187602117dd8739297ab21d8a0"
     var i = 0   // Se declara esta variable fuera para que el valor de i se vaya incrementando.
     
     @IBAction func recommendButton(_ sender: UIButton) {
         
         let input = inputTextField.text // Se asigna aquí lo que escribimos en el inputTextField.
-        print(input!)   // Se muestra por consola el input.
         if (inputTextField.text?.isEmpty)! {
             
-            let message = "Para poder ayudarte tienes que introducir una película en el recomendador."
+            let message = "Para poder ayudarte tienes que introducir una película en el recomendador"
             showAlert(message: message)
             
         } else {
@@ -70,7 +70,10 @@ class FilmBrowser: UIViewController {
     // Función que devuelve una película recomendada a la película pasada como input:
     func getRecommendedFilm(filmInput : String, apiKey : String) -> Void {
         
+        // ******************************** INICIO TMDB **************************************
+        
         let film = modifyInputTMDB(input: filmInput)
+        var parrafoMC = ""
         
         let idApiURL = "https://api.themoviedb.org/3/search/movie?api_key=\(apiKey)&language=es&query=\(film)" // URL de la API. Web donde entra la app para coger el archivo JSON.
         
@@ -95,10 +98,10 @@ class FilmBrowser: UIViewController {
             let id = idFilmInfo["id"] as? Int // Se coge el dato deseado del arreglo.
             let idString : String!
             idString = "\(String(describing: id ?? 0))"  // Se pasa id de Int a String (se pone ?? 0 para que no aparezca el Optional).
-            print(idString ?? 0)    // El '?? 0' es para que no aparezca como Optional.
+            //print(idString ?? 0)    // El '?? 0' es para que no aparezca como Optional.
             
             // Una vez se tenga el ID se acceden a los datos de la película:
-            let recomApiURL = "https://api.themoviedb.org/3/movie/\(idString!)/similar?api_key=\(apiKey)&language=es&page=1"
+            let recomApiURL = "https://api.themoviedb.org/3/movie/\(idString!)/similar?api_key=\(apiKey)&language=en&page=1"
             
             guard let recomURL = URL(string: recomApiURL) else { return }   // guard es una especie de if, pero reduce el código al mínimo.
             
@@ -125,7 +128,8 @@ class FilmBrowser: UIViewController {
                 let overview = recomFilmInfo["overview"] as? String // Se coge el dato deseado del arreglo.
                 print(overview!)
                 self.overviewTextView.text = "\(overview!)"    // Se muestra el resumen por el resumenTextView.
-            
+                parrafoMC = overview!
+                
             } catch {
                 print("Error en la obtención de las películas recomendadas")
             }
@@ -134,6 +138,45 @@ class FilmBrowser: UIViewController {
         } catch {
             print("Error en la obtención del ID de la película")
         }
+        
+        // ******************************** FIN TMDB **************************************
+        
+        // ******************************** INICIO MEANINGCLOUD **************************************
+        
+        let parrafoModifyMC = modifyInputMC(input: parrafoMC)
+        
+        let recomApiUrlMC = "https://api.meaningcloud.com/topics-2.0?key=\(apiKeyMC)&of=json&lang=en&ilang=en&txt=\(parrafoModifyMC)&tt=a&uw=y"
+        
+        guard let recomUrlMC = URL(string: recomApiUrlMC) else { return }   // guard es una especie de if, pero reduce el código al mínimo.
+        
+        guard let recomDataMC = try? Data(contentsOf: recomUrlMC) // Se descargan los datos del archivo JSON. Primero se pasan esos datos a datos legibles.
+            else {
+                print("Error en la descarga de datos del archivo JSON (MeaningCloud)")
+                return
+        }
+        
+        do {
+            
+            let recomJSON = try JSONSerialization.jsonObject(with: recomDataMC, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary   // Este código se usa SIEMPRE que se use JSON. Se convierte el archivo JSON en datos. Se usa NSDictionary porque se sabe que son datos de ese tipo. Hay que saber el tipo de dato que es.
+            
+            // Se accede a los arreglos (datos de dentro que nos interesan) del archivo JSON:
+            let recomResultsArray: NSArray = (recomJSON!["entity_list"] as? NSArray)! // Se accede al arreglo.
+            
+            for i in 1...3 {
+                
+                // Se obtienen 5 tópicos:
+                let recomFilmInfo: NSDictionary = recomResultsArray[i] as! NSDictionary    // Se accede al arreglo.
+                let form = recomFilmInfo["form"] as? String // Se coge el dato deseado del arreglo.
+                let relevance = recomFilmInfo["relevance"] as? String // Se coge el dato deseado del arreglo.
+                print("\nForm: " + form! + " [Relevance: " + relevance! + "]")
+                
+            }
+    
+        } catch {
+            print("Error en la obtención de los tópicos")
+        }
+        
+        // ******************************** FIN MEANINGCLOUD **************************************
         
     }
     
@@ -157,7 +200,6 @@ class FilmBrowser: UIViewController {
             }
         }
         
-        print("\nModified film: " + output)
         return output
         
     }
@@ -176,7 +218,7 @@ class FilmBrowser: UIViewController {
                 
             } else {    // Si ya se tiene la primera palabra.
                 
-                output = "\(output)%\(inputArray[i])"   // Se concatenan con un %, necesario para buscar en la API.
+                output = "\(output)%20\(inputArray[i])"   // Se concatenan con un %, necesario para buscar en la API.
                 
             }
         }
