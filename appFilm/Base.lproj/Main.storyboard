@@ -187,7 +187,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Introducir película" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1gU-ef-DlV">
-                                <rect key="frame" x="66" y="161" width="211" height="30"/>
+                                <rect key="frame" x="66" y="161" width="282" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
@@ -223,15 +223,6 @@
                                 <state key="normal" title="Añadir"/>
                                 <connections>
                                     <action selector="addButton:" destination="Tej-eH-Snd" eventType="touchUpInside" id="C5K-yw-8bQ"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bUC-O1-T4O">
-                                <rect key="frame" x="310" y="161" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="M"/>
-                                <connections>
-                                    <action selector="microphoneInput:" destination="Tej-eH-Snd" eventType="touchUpInside" id="e9R-0X-JJE"/>
                                 </connections>
                             </button>
                         </subviews>
