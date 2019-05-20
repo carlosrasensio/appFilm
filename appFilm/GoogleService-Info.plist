@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>572967282112-3nv1nmm3q43k9p3m41fqvfrhcsdlervn.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.572967282112-3nv1nmm3q43k9p3m41fqvfrhcsdlervn</string>
+	<key>API_KEY</key>
+	<string>AIzaSyD-l5gqGZnn-Aus0ACEFllS3vGKK_56Aes</string>
+	<key>GCM_SENDER_ID</key>
+	<string>572967282112</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>Carlos-R.-Asensio.appFilm</string>
+	<key>PROJECT_ID</key>
+	<string>appfilm-ad10e</string>
+	<key>STORAGE_BUCKET</key>
+	<string>appfilm-ad10e.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:572967282112:ios:d70d67b2be1d67dc</string>
+	<key>DATABASE_URL</key>
+	<string>https://appfilm-ad10e.firebaseio.com</string>
+</dict>
+</plist>
