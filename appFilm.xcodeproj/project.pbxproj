@@ -33,6 +33,7 @@
 		994021702292F749005EAE34 /* Authenticate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authenticate.swift; sourceTree = "<group>"; };
 		994021722292FA0A005EAE34 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		994021742292FA1B005EAE34 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
+		99A4D4C52293091E006E4D2D /* appFilm.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = appFilm.entitlements; sourceTree = "<group>"; };
 		DD13B83E220A807600F5F3A4 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		DD13B842220A838100F5F3A4 /* Logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Logo.jpg; sourceTree = "<group>"; };
 		DD13B844220A87EF00F5F3A4 /* TvTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvTable.swift; sourceTree = "<group>"; };
@@ -98,6 +99,7 @@
 		DDC11713220A49FB003B1B01 /* appFilm */ = {
 			isa = PBXGroup;
 			children = (
+				99A4D4C52293091E006E4D2D /* appFilm.entitlements */,
 				DDC11714220A49FB003B1B01 /* AppDelegate.swift */,
 				994021702292F749005EAE34 /* Authenticate.swift */,
 				DD13B83E220A807600F5F3A4 /* Menu.swift */,
@@ -152,6 +154,11 @@
 				TargetAttributes = {
 					DDC11710220A49FB003B1B01 = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -400,6 +407,7 @@
 			baseConfigurationReference = 547A3DAAFA7619B8C03D7779 /* Pods-appFilm.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = appFilm/appFilm.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3XHYWUKLLP;
 				INFOPLIST_FILE = appFilm/Info.plist;
@@ -419,6 +427,7 @@
 			baseConfigurationReference = 3E20A73BB48ABEF59F0F77B4 /* Pods-appFilm.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = appFilm/appFilm.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3XHYWUKLLP;
 				INFOPLIST_FILE = appFilm/Info.plist;

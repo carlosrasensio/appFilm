@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class SignUp: UIViewController {
     
@@ -15,8 +16,15 @@ class SignUp: UIViewController {
     @IBOutlet weak var apellidosText: UITextField!
     @IBOutlet weak var passwordText: UITextField!
     @IBOutlet weak var passwordRepeatText: UITextField!
+    var email:String = ""
+    var password:String = ""
     
     @IBAction func signUpButton(_ sender: Any) {
+        email = correoText.text!
+        password = passwordText.text!
+        Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
+            guard let user = authResult?.user else { return }
+        }
     }
     
     override func viewDidLoad() {
