@@ -45,7 +45,7 @@
         <!--Menu-->
         <scene sceneID="pVs-aa-j55">
             <objects>
-                <viewController id="tFS-jf-ClI" customClass="Menu" customModule="appFilm" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Menu" id="tFS-jf-ClI" customClass="Menu" customModule="appFilm" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iz7-hX-phF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -410,7 +410,6 @@
                                 <state key="normal" title="Login"/>
                                 <connections>
                                     <action selector="loginButton:" destination="RWf-C2-3uM" eventType="touchUpInside" id="Eza-hl-LeH"/>
-                                    <segue destination="tFS-jf-ClI" kind="show" id="0sC-tB-chf"/>
                                 </connections>
                             </button>
                         </subviews>
