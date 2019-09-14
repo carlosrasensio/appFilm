@@ -7,3 +7,15 @@
 //
 
 import Foundation
+
+class Film {
+    
+    var name: String?
+    var overview: String?
+    
+    init(name: String, overview: String) {
+        self.name = name
+        self.overview = overview
+    }
+    
+}
