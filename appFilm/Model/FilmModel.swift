@@ -1,5 +1,5 @@
 //
-//  Film.swift
+//  FilmModel.swift
 //  appFilm
 //
 //  Created by Carlos Rodriguez Asensio on 14/09/2019.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Film {
+class FilmModel {
     
     var name: String?
     var overview: String?
