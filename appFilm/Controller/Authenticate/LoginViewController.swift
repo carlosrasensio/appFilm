@@ -52,29 +52,35 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
     }
     
     @IBAction func facebookButtonPressed(_ sender: Any) {
+        loginWithFaceBook()
     }
     
     @IBAction func googleButtonPressed(_ sender: Any) {
+        GIDSignIn.sharedInstance()?.signIn()
     }
     
     // MARK: - Google login
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         
-        print("\n\nEntra en la funcion sign (Google)\n")
+        print("\n\nEntra en la funcion sign (GOOGLE)\n")
         
         if let error = error {
-            showAlert(title: "Failed to login with Google", message: error.localizedDescription)
+            showAlert(title: "ERROR", message: error.localizedDescription)
             print("Failed to login with Google: \(error.localizedDescription)")
             return
         } else {
             self.loggedUser.idGoogle = user.userID
-            print("idGoogle: \(self.loggedUser.idGoogle)")
+            print("SignIn Google --> self.loggedUser.idGoogle: \(self.loggedUser.idGoogle)")
             self.loggedUser.name = user.profile.name
             print("SignIn Google --> self.loggedUser.name: \(self.loggedUser.name)")
             self.loggedUser.email = user.profile.email
-            print("SignIn Google --> self.loggedUser.email: \(self.loggedUser.email)")
-            self.functions.saveLoggedUser(loggedUser: self.loggedUser)
-            //firebaseAuth()
+            print("SignIn Google --> self.loggedUser.email: \(self.loggedUser.email)\n")
+            self.saveLoggedUser(loggedUser: self.loggedUser)
+            // Se obtiene un token de ID de Google y un token de acceso de Google del objeto GIDAuthentication:
+            guard let authentication = user.authentication else { return }
+            let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
+                                                           accessToken: authentication.accessToken)
+            firebaseAuth(credential: credential)
         }
         
     }
@@ -89,7 +95,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
         fbLoginManager.logIn(permissions: ["public_profile", "email"], from: self) { (result, error) in
             
             if let error = error {
-                self.showAlert(title: "Failed to login with Facebook", message: error.localizedDescription)
+                self.showAlert(title: "ERROR", message: error.localizedDescription)
                 print("Failed to login with Facebook: \(error.localizedDescription)")
                 return
             }
@@ -98,7 +104,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
             GraphRequest(graphPath: "me", parameters: parameters).start(completionHandler: { (connection, result, error) in
                 
                 if let error = error {
-                    self.showAlert(title: "Failed getting Facebook user data", message: error.localizedDescription)
+                    self.showAlert(title: "ERROR", message: error.localizedDescription)
                     HTTPCookieStorage.shared.cookies?.forEach(HTTPCookieStorage.shared.deleteCookie)
                     fbLoginManager.logOut()
                     print("Failed getting Facebook user data: ", error.localizedDescription)
@@ -121,7 +127,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
                             print("loggedUser email (GraphRequest): \(self.loggedUser.email)")
                         }
                     }
-                    self.functions.saveLoggedUser(loggedUser: self.loggedUser)
+                    self.saveLoggedUser(loggedUser: self.loggedUser)
                     //firebaseAuth()
                 }
             })
@@ -130,22 +136,25 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
     }
     
     //MARK: - Facebook login
-//    func firebaseAuth(loggedUser: User) {
-//        self.loggedUser = loggedUser
-//        Auth.auth().signIn(withCustomToken: self.loggedUser.tokenFirebase) { (user, error) in
-//            if error == nil {
-//                let uid = self.getUserIdFirebase()
-//                print("ID Firebase: \(uid)")
-//                self.loggedUser.signedIn = true
-//                self.saveLoggedUser(loggedUser: self.loggedUser)
-//                self.dismiss(animated: true, completion: nil)
-//                print("\nLogado con éxito en Firebase. Datos del usuario guardados:")
-//                print("Nombre: \(self.loggedUser.name), Apellido: \(self.loggedUser.lastName1), Birthday: \(self.loggedUser.birthday), Email: \(self.loggedUser.email), Signed: \(self.loggedUser.signedIn)")
-//            } else {
-//                self.showAlert(title: "Error", message: error?.localizedDescription)
-//            }
-//        }
-//    }
+    func firebaseAuth(credential: AuthCredential) {
+        Auth.auth().signIn(with: credential, completion: { (authResult, error) in
+            if error == nil {
+                self.loggedUser.name = (authResult?.user.displayName)!
+                self.loggedUser.email = (authResult?.user.email)!
+                self.loggedUser.idFirebase = (authResult?.user.uid)!
+                self.loggedUser.signedIn = true
+                let uid = self.functions.getUserIdFirebase()
+                print("ID obtenido de la uid de Firebase: \(uid)")
+                self.saveLoggedUser(loggedUser: self.loggedUser)
+                print("\nLogado con éxito en Firebase. Datos del usuario guardados en loggedUser:")
+                print("Nombre: \(self.loggedUser.name), Apellido: \(self.loggedUser.lastName), Email: \(self.loggedUser.email), Signed: \(self.loggedUser.signedIn), ID Firebase: \(self.loggedUser.idFirebase), ")
+                //self.dismiss(animated: true, completion: nil)
+                self.goToScreen(storyboard: "Main", screen: "rootMainStoryboard")
+            } else {
+                self.showAlert(title: "ERROR", message: error!.localizedDescription)
+            }
+        })
+    }
     
     /*
     // MARK: - Navigation
@@ -163,6 +172,23 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
         let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alertController.addAction(defaultAction)
         self.present(alertController, animated: true, completion: nil)
+    }
+    
+    // MARK: - UserDefaults
+    func saveLoggedUser(loggedUser: User) {
+        let defaults = UserDefaults.standard
+        let encodedData: Data = NSKeyedArchiver.archivedData(withRootObject: loggedUser)
+        defaults.set(encodedData, forKey: "loggedUser")
+        defaults.synchronize()
+        print("\n\nFunción saveLoggedUser:")
+        print("Name: \(loggedUser.name)\nLast Name: \(loggedUser.lastName)\nEmail: \(loggedUser.email)\nSigned: \(loggedUser.signedIn)")
+    }
+    
+    // MARK: - Navigation
+    func goToScreen(storyboard: String, screen: String) {
+        let storyboard = UIStoryboard(name: storyboard, bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: screen)
+        self.present(controller, animated: true, completion: nil)
     }
 
 }

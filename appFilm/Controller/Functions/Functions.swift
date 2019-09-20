@@ -37,6 +37,16 @@ class Functions {
         return uid
     }
     
+    func userLogout() {
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+        } catch let signOutError as NSError {
+            print ("Error signing out: \(signOutError.localizedDescription)")
+            showAlert(title: "ERROR", message: signOutError.localizedDescription)
+        }
+    }
+    
     // MARK: - Alert
     func showAlert(title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)

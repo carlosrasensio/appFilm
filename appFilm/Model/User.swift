@@ -8,7 +8,7 @@
 
 import Foundation
 
-class User: NSObject {
+class User: NSObject, NSCoding {
     
     var name: String
     var lastName: String
@@ -38,6 +38,7 @@ class User: NSObject {
         let idFirebase = aDecoder.decodeObject(forKey: "idFirebase") as! String
         let idGoogle = aDecoder.decodeObject(forKey: "idGoogle") as! String
         let idFacebook = aDecoder.decodeObject(forKey: "idFacebook") as! String
+        
         self.init(name: name, lastName: lastName, email: email, signedIn: signedIn, idFirebase: idFirebase, idGoogle: idGoogle, idFacebook: idFacebook)
     }
     
