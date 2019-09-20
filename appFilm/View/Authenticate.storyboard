@@ -80,22 +80,22 @@
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Correo electrónico" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FY1-fc-vG8" customClass="MDCTextField">
                                 <rect key="frame" x="64" y="253" width="247" height="30"/>
-                                <color key="textColor" red="0.47058823529999999" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="BentonSans-Book" family="BentonSans-Book" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contraseña" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EKo-sV-Xp0" customClass="MDCTextField">
                                 <rect key="frame" x="64" y="307" width="247" height="30"/>
-                                <color key="textColor" red="0.47058823529999999" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="BentonSans-Book" family="BentonSans-Book" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7q9-29-ib8" customClass="MDCButton">
                                 <rect key="frame" x="64" y="361" width="247" height="38"/>
-                                <color key="backgroundColor" red="0.0" green="0.43529411759999997" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.32369780539999998" green="0.1063579395" blue="0.574860394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <state key="normal" title="Iniciar sesión">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" red="0.58188301320000002" green="0.21569153669999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="loginButtonPressed:" destination="ZHa-zH-1Vk" eventType="touchUpInside" id="dkP-rs-Qdr"/>
@@ -106,14 +106,14 @@
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Si no tienes cuenta, REGÍSTRATE">
-                                    <color key="titleColor" red="0.0039215686269999999" green="0.42352941179999998" blue="0.63529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.32369780539999998" green="0.1063579395" blue="0.574860394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <segue destination="R3a-Dq-GOo" kind="show" id="gAk-qC-UKy"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.95686274510000002" green="0.95294117649999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="0.2527923882" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="CLu-gn-R8h" firstAttribute="leading" secondItem="Eg1-ab-151" secondAttribute="leading" constant="64" id="6Cw-ak-8pU"/>
                             <constraint firstItem="nJX-WX-2dL" firstAttribute="leading" secondItem="Eg1-ab-151" secondAttribute="leading" constant="66" id="7qk-uL-J7C"/>
@@ -196,16 +196,16 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8pZ-1B-3yP" customClass="MDCButton">
                                 <rect key="frame" x="64" y="411" width="247" height="30"/>
-                                <color key="backgroundColor" red="0.0039215686269999999" green="0.42352941179999998" blue="0.63529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.32369780539999998" green="0.1063579395" blue="0.574860394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Registrarse">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" red="0.58039215690000001" green="0.21569153669999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nMy-Zg-Hbb">
                                 <rect key="frame" x="64" y="621" width="247" height="30"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <state key="normal" title="Si ya tienes cuenta, INICIA SESIÓN">
-                                    <color key="titleColor" red="0.0039215686269999999" green="0.42352941179999998" blue="0.63529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.32369780539999998" green="0.1063579395" blue="0.574860394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <segue destination="ZHa-zH-1Vk" kind="show" id="qul-wJ-5Tl"/>
@@ -248,7 +248,7 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="1" green="0.2527923882" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="nMy-Zg-Hbb" firstAttribute="leading" secondItem="EbL-Vp-Nyr" secondAttribute="leading" constant="64" id="366-HO-qya"/>
                             <constraint firstItem="EbL-Vp-Nyr" firstAttribute="trailing" secondItem="nMy-Zg-Hbb" secondAttribute="trailing" constant="64" id="6Ph-Ct-PWK"/>
@@ -301,48 +301,62 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="Logo.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="fNc-wV-zYC">
-                                <rect key="frame" x="0.0" y="64" width="375" height="323"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cky-pc-JaD">
-                                <rect key="frame" x="0.0" y="527" width="375" height="140"/>
-                                <color key="backgroundColor" red="0.58188301320000002" green="0.21569153669999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
-                                <state key="normal" title="REGISTRO">
-                                    <color key="titleColor" red="1" green="0.2527923882" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="R3a-Dq-GOo" kind="show" id="b4e-SO-9kL"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jgS-E9-x71">
-                                <rect key="frame" x="0.0" y="387" width="375" height="140"/>
-                                <color key="backgroundColor" red="0.32369780539999998" green="0.1063579395" blue="0.574860394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="57.5" y="96" width="260" height="260"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="140" id="vJl-PF-e9n"/>
+                                    <constraint firstAttribute="width" constant="260" id="fxP-Hd-edI"/>
+                                    <constraint firstAttribute="height" constant="260" id="mea-V6-3EH"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="130"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jgS-E9-x71">
+                                <rect key="frame" x="40" y="445" width="295" height="60"/>
+                                <color key="backgroundColor" red="0.32369780539999998" green="0.1063579395" blue="0.574860394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
                                 <state key="normal" title="LOGIN">
                                     <color key="titleColor" red="1" green="0.2527923882" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="18"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="ZHa-zH-1Vk" kind="show" id="IQZ-ST-85O"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cky-pc-JaD">
+                                <rect key="frame" x="40" y="559" width="295" height="60"/>
+                                <color key="backgroundColor" red="0.58188301320000002" green="0.21569153669999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                <state key="normal" title="REGISTRO">
+                                    <color key="titleColor" red="1" green="0.2527923882" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="18"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="R3a-Dq-GOo" kind="show" id="b4e-SO-9kL"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="1" green="0.2527923882" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="Cky-pc-JaD" secondAttribute="bottom" id="2sf-bd-PnY"/>
-                            <constraint firstItem="Cky-pc-JaD" firstAttribute="top" secondItem="jgS-E9-x71" secondAttribute="bottom" id="AlG-tL-sCe"/>
-                            <constraint firstItem="Cky-pc-JaD" firstAttribute="leading" secondItem="D0Z-4I-WBR" secondAttribute="leading" id="KND-fL-nc9"/>
-                            <constraint firstItem="jgS-E9-x71" firstAttribute="trailing" secondItem="D0Z-4I-WBR" secondAttribute="trailing" id="XxR-ma-9AY"/>
-                            <constraint firstItem="Cky-pc-JaD" firstAttribute="trailing" secondItem="D0Z-4I-WBR" secondAttribute="trailing" id="YDF-wV-TjC"/>
-                            <constraint firstItem="fNc-wV-zYC" firstAttribute="top" secondItem="D0Z-4I-WBR" secondAttribute="top" id="YLV-UV-tdy"/>
-                            <constraint firstItem="fNc-wV-zYC" firstAttribute="trailing" secondItem="D0Z-4I-WBR" secondAttribute="trailing" id="iQr-dl-fTQ"/>
-                            <constraint firstItem="jgS-E9-x71" firstAttribute="top" secondItem="fNc-wV-zYC" secondAttribute="bottom" id="ksy-g8-1zU"/>
-                            <constraint firstItem="fNc-wV-zYC" firstAttribute="leading" secondItem="D0Z-4I-WBR" secondAttribute="leading" id="lWd-Nx-jUv"/>
-                            <constraint firstItem="jgS-E9-x71" firstAttribute="height" secondItem="Cky-pc-JaD" secondAttribute="height" id="nUa-N2-rRQ"/>
-                            <constraint firstItem="jgS-E9-x71" firstAttribute="width" secondItem="Cky-pc-JaD" secondAttribute="width" id="pQU-NA-d44"/>
-                            <constraint firstItem="jgS-E9-x71" firstAttribute="leading" secondItem="D0Z-4I-WBR" secondAttribute="leading" id="uxu-Yb-aGc"/>
+                            <constraint firstItem="fNc-wV-zYC" firstAttribute="top" secondItem="D0Z-4I-WBR" secondAttribute="top" constant="32" id="79y-Fh-zvg"/>
+                            <constraint firstItem="jgS-E9-x71" firstAttribute="height" secondItem="Cky-pc-JaD" secondAttribute="height" id="AEG-IW-URz"/>
+                            <constraint firstItem="Cky-pc-JaD" firstAttribute="top" secondItem="jgS-E9-x71" secondAttribute="bottom" constant="54" id="Goz-yt-8pf"/>
+                            <constraint firstItem="jgS-E9-x71" firstAttribute="top" secondItem="fNc-wV-zYC" secondAttribute="bottom" constant="89" id="UfO-dE-eUv"/>
+                            <constraint firstItem="jgS-E9-x71" firstAttribute="trailing" secondItem="Cky-pc-JaD" secondAttribute="trailing" id="YHb-qm-h2C"/>
+                            <constraint firstItem="D0Z-4I-WBR" firstAttribute="bottom" secondItem="Cky-pc-JaD" secondAttribute="bottom" constant="48" id="fGQ-kK-ttX"/>
+                            <constraint firstItem="Cky-pc-JaD" firstAttribute="leading" secondItem="D0Z-4I-WBR" secondAttribute="leading" constant="40" id="hKU-28-ScE"/>
+                            <constraint firstItem="fNc-wV-zYC" firstAttribute="centerX" secondItem="QoT-x6-WfA" secondAttribute="centerX" id="qVP-jB-3pC"/>
+                            <constraint firstItem="jgS-E9-x71" firstAttribute="leading" secondItem="Cky-pc-JaD" secondAttribute="leading" id="s5I-yJ-beE"/>
+                            <constraint firstItem="D0Z-4I-WBR" firstAttribute="trailing" secondItem="Cky-pc-JaD" secondAttribute="trailing" constant="40" id="spz-2O-Ikd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="D0Z-4I-WBR"/>
                     </view>
