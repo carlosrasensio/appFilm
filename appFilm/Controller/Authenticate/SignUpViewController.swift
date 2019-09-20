@@ -94,7 +94,7 @@ class SignUpViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDele
         }
         if flag {
             if (repeatPasswordTextField.text == passwordTextField.text) {
-                print("\nCampos rellenados correctamente. Se procede a hacer la llamada a la API\n")
+                print("\nCampos rellenados correctamente\n")
                 self.loggedUser.name = nameTextField.text!
                 self.loggedUser.lastName = lastnameTextField.text!
                 self.loggedUser.email = emailTextField.text!
