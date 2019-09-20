@@ -24,6 +24,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         // Firebase
         FirebaseApp.configure()
+        if Auth.auth().currentUser == nil {
+            self.window = UIWindow(frame: UIScreen.main.bounds)
+            let storyboard = UIStoryboard(name: "Authenticate", bundle: nil)
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "rootAuthenticateStoryboard")
+            self.window?.rootViewController = initialViewController
+            self.window?.makeKeyAndVisible()
+        }
         // Google
         GIDSignIn.sharedInstance()?.clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self

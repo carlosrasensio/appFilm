@@ -36,7 +36,7 @@ class Menu: UIViewController {
             let signOutAction = UIAlertAction(title: "Sí", style: .destructive) { (action) in
                 do {
                     self.functions.userLogout(loggedUser: user)
-                    self.viewDidLoad()
+                    self.goToScreen(storyboard: "Authenticate", screen: "rootAuthenticateStoryboard")
                     print("\nEl usuario ha cerrado sesión con éxito\n")
                 } catch let error {
                     print("[!] Error al hacer sign out --> ", error)
