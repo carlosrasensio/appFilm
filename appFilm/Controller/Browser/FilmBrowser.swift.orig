@@ -51,6 +51,7 @@ class FilmBrowser: UIViewController {
         
     }
     
+<<<<<<< HEAD
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
         super.touchesBegan(touches, with: event)
@@ -63,7 +64,9 @@ class FilmBrowser: UIViewController {
     }
     
     
+=======
     // MARK: - Add button action
+>>>>>>> feature/constraints
     @IBAction func addButton(_ sender: UIButton) {
 
         // Se utiliza persistentContainer como vista de contexto. Lo lleva todo al AppDelegate (obligatorio en CoreData):
