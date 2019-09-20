@@ -32,8 +32,20 @@ class Menu: UIViewController {
     @IBAction func authButtonPressed(_ sender: Any) {
         let user = self.functions.readLoggedUser()
         if user.signedIn {
-            self.functions.userLogout(loggedUser: user)
-            viewDidLoad()
+            let dialogMessage = UIAlertController(title: "Cerrar sesión", message: "¿Está seguro de querer cerrar sesión?", preferredStyle: .actionSheet)
+            let signOutAction = UIAlertAction(title: "Sí", style: .destructive) { (action) in
+                do {
+                    self.functions.userLogout(loggedUser: user)
+                    self.viewDidLoad()
+                    print("\nEl usuario ha cerrado sesión con éxito\n")
+                } catch let error {
+                    print("[!] Error al hacer sign out --> ", error)
+                }
+            }
+            let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
+            dialogMessage.addAction(cancelAction)
+            dialogMessage.addAction(signOutAction)
+            self.present(dialogMessage, animated: true, completion: nil)
         } else {
             self.goToScreen(storyboard: "Authenticate", screen: "rootAuthenticateStoryboard")
         }
