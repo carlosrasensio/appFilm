@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Speech
 
 class FilmBrowser: UIViewController {
     
@@ -33,13 +32,6 @@ class FilmBrowser: UIViewController {
         }
         
     }
-    
-    @IBAction func microphoneInput(_ sender: Any) {
-        
-        
-        
-    }
-    
     
     @IBAction func addButton(_ sender: UIButton) {
 
