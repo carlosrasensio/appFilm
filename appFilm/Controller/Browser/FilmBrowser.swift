@@ -10,12 +10,30 @@ import UIKit
 
 class FilmBrowser: UIViewController {
     
+    // MARK: - Outlets
     @IBOutlet var inputTextField: UITextField!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var overviewTextView: UITextView!
-    let apiKey = "5d8bb741e4498fd5448bc0738a12eb52" // Clave de la API para cada usuario.
-    var i = 0   // Se declara esta variable fuera para que el valor de i se vaya incrementando.
     
+    // MARK: - Constants
+    let apiKey = "5d8bb741e4498fd5448bc0738a12eb52" // Clave de la API para cada usuario.
+    
+    // MARK: - Global variables
+    var index = 0   // Se declara esta variable fuera para que el valor de i se vaya incrementando.
+    
+    // MARK: - Life cycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+    }
+    
+    // MARK: - Hide keyboard
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+        super.touchesBegan(touches, with: event)
+    }
+    
+    // MARK: - Recommend button action
     @IBAction func recommendButton(_ sender: UIButton) {
         
         let input = inputTextField.text // Se asigna aquí lo que escribimos en el inputTextField.
@@ -33,6 +51,7 @@ class FilmBrowser: UIViewController {
         
     }
     
+    // MARK: - Add button action
     @IBAction func addButton(_ sender: UIButton) {
 
         // Se utiliza persistentContainer como vista de contexto. Lo lleva todo al AppDelegate (obligatorio en CoreData):
@@ -59,6 +78,7 @@ class FilmBrowser: UIViewController {
         
     }
     
+    // MARK: - Get recommended film
     // Función que devuelve una película recomendada a la película pasada como input:
     func getRecommendedFilm(filmInput : String, apiKey : String) -> Void {
         
@@ -108,11 +128,11 @@ class FilmBrowser: UIViewController {
                 let recomResultsArray: NSArray = (recomJSON!["results"] as? NSArray)! // Se accede al arreglo.
                 
                 // Se obtiene una recomendación cada vez que se pulsa el botón:
-                let recomFilmInfo: NSDictionary = recomResultsArray[i] as! NSDictionary    // Se accede al arreglo.
+                let recomFilmInfo: NSDictionary = recomResultsArray[index] as! NSDictionary    // Se accede al arreglo.
                 let title = recomFilmInfo["title"] as? String // Se coge el dato deseado del arreglo.
                 print(title!)
                 self.titleLabel.text = "\(title!)"    // Se muestra el titulo por el titleLabel.
-                i += 1  // Se incrementa el valor de i para que se obtengan más películas.
+                index += 1  // Se incrementa el valor de i para que se obtengan más películas.
                 
                 let overview = recomFilmInfo["overview"] as? String // Se coge el dato deseado del arreglo.
                 print(overview!)
@@ -177,6 +197,7 @@ class FilmBrowser: UIViewController {
         
     }
     
+    // MARK: - Alert function
     func showAlert(message : String) -> Void { // Función para sacar un mensaje en una alerta.
         
         let alert = UIAlertController(title: "¡Acción incorrecta!", message: message, preferredStyle: .alert)   // Se crea la propia alerta con un mensaje que se introduce posteriormente.
@@ -190,11 +211,6 @@ class FilmBrowser: UIViewController {
         alert.addAction(actionOK)  // Se añade la actionOK a la alerta.
         self.present(alert, animated: true, completion: nil)   // Presentación de la alerta.
         
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
     }
 
 }

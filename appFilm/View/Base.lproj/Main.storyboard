@@ -51,24 +51,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="Logo.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="irt-P0-k2C">
-                                <rect key="frame" x="0.0" y="64" width="375" height="183"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="323"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xZM-e4-MQm">
-                                <rect key="frame" x="0.0" y="457" width="375" height="210"/>
+                                <rect key="frame" x="0.0" y="527" width="375" height="140"/>
                                 <color key="backgroundColor" red="0.58188301320000002" green="0.21569153669999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
                                 <state key="normal" title="TV">
                                     <color key="titleColor" red="1" green="0.2527923882" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
-                                <connections>
-                                    <segue destination="Jao-OL-74O" kind="show" id="Cnl-bS-x3H"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lsx-IU-joC">
-                                <rect key="frame" x="0.0" y="247" width="375" height="210"/>
+                                <rect key="frame" x="0.0" y="387" width="375" height="140"/>
                                 <color key="backgroundColor" red="0.32369780539999998" green="0.1063579395" blue="0.574860394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="210" id="Sj2-05-zHs"/>
+                                    <constraint firstAttribute="height" constant="140" id="Sj2-05-zHs"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
                                 <state key="normal" title="FILM">
