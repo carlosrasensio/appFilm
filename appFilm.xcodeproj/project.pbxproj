@@ -13,6 +13,9 @@
 		991201832326E0ED001A6AB5 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991201822326E0ED001A6AB5 /* SignUpViewController.swift */; };
 		995FFD16232D4998005B1E72 /* FilmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995FFD15232D4998005B1E72 /* FilmModel.swift */; };
 		99E541042335035300BD0522 /* AuthenticationMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E541032335035300BD0522 /* AuthenticationMenu.swift */; };
+		99E5410623350EE400BD0522 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E5410523350EE300BD0522 /* User.swift */; };
+		99E5410A233512A000BD0522 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E54109233512A000BD0522 /* Functions.swift */; };
+		99E5410E233515F400BD0522 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 99E5410D233515F300BD0522 /* GoogleService-Info.plist */; };
 		DD13B83F220A807600F5F3A4 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD13B83E220A807600F5F3A4 /* Menu.swift */; };
 		DD13B843220A838100F5F3A4 /* Logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DD13B842220A838100F5F3A4 /* Logo.jpg */; };
 		DDC11715220A49FB003B1B01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC11714220A49FB003B1B01 /* AppDelegate.swift */; };
@@ -33,6 +36,9 @@
 		991201822326E0ED001A6AB5 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		995FFD15232D4998005B1E72 /* FilmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmModel.swift; sourceTree = "<group>"; };
 		99E541032335035300BD0522 /* AuthenticationMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationMenu.swift; sourceTree = "<group>"; };
+		99E5410523350EE300BD0522 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		99E54109233512A000BD0522 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
+		99E5410D233515F300BD0522 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DD13B83E220A807600F5F3A4 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		DD13B842220A838100F5F3A4 /* Logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Logo.jpg; sourceTree = "<group>"; };
 		DDC11711220A49FB003B1B01 /* appFilm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = appFilm.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,6 +93,7 @@
 		991201842326E0F5001A6AB5 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				99E541072335127000BD0522 /* Functions */,
 				995FFD11232D2857005B1E72 /* Film List */,
 				995FFD10232D282E005B1E72 /* Browser */,
 				995FFD0F232D2821005B1E72 /* Menu */,
@@ -144,8 +151,17 @@
 			isa = PBXGroup;
 			children = (
 				995FFD15232D4998005B1E72 /* FilmModel.swift */,
+				99E5410523350EE300BD0522 /* User.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		99E541072335127000BD0522 /* Functions */ = {
+			isa = PBXGroup;
+			children = (
+				99E54109233512A000BD0522 /* Functions.swift */,
+			);
+			path = Functions;
 			sourceTree = "<group>";
 		};
 		DDC11708220A49FB003B1B01 = {
@@ -171,6 +187,7 @@
 			children = (
 				DDC11714220A49FB003B1B01 /* AppDelegate.swift */,
 				DDC11723220A49FC003B1B01 /* Info.plist */,
+				99E5410D233515F300BD0522 /* GoogleService-Info.plist */,
 				991201862326E14B001A6AB5 /* Resources */,
 				995FFD12232D28AA005B1E72 /* Model */,
 				991201852326E0FC001A6AB5 /* View */,
@@ -245,6 +262,7 @@
 				DDC1171F220A49FC003B1B01 /* Assets.xcassets in Resources */,
 				DDC1171A220A49FB003B1B01 /* Main.storyboard in Resources */,
 				9912017E2326E09B001A6AB5 /* Authenticate.storyboard in Resources */,
+				99E5410E233515F400BD0522 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,10 +336,12 @@
 				99E541042335035300BD0522 /* AuthenticationMenu.swift in Sources */,
 				DDC1171D220A49FB003B1B01 /* appFilm.xcdatamodeld in Sources */,
 				991201802326E0C9001A6AB5 /* LoginViewController.swift in Sources */,
+				99E5410A233512A000BD0522 /* Functions.swift in Sources */,
 				995FFD16232D4998005B1E72 /* FilmModel.swift in Sources */,
 				DDC11717220A49FB003B1B01 /* ViewController.swift in Sources */,
 				991201832326E0ED001A6AB5 /* SignUpViewController.swift in Sources */,
 				DDC11715220A49FB003B1B01 /* AppDelegate.swift in Sources */,
+				99E5410623350EE400BD0522 /* User.swift in Sources */,
 				DD13B83F220A807600F5F3A4 /* Menu.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

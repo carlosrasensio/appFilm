@@ -8,6 +8,9 @@
 
 import UIKit
 import CoreData
+import Firebase
+import FBSDKCoreKit
+import GoogleSignIn
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,6 +21,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         print("Application did finish launching")
+        
+        //MARK: - Firebase configuration
+        FirebaseApp.configure()
+        //MARK: - Facebook configuration
+        ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
+        //MARK: - Google configuration
+        GIDSignIn.sharedInstance()?.clientID = FirebaseApp.app()?.options.clientID
+        
         return true
     }
 

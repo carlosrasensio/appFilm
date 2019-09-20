@@ -41,12 +41,18 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="30"/>
                                         <state key="normal" title="f"/>
+                                        <connections>
+                                            <action selector="facebookButtonPressed:" destination="ZHa-zH-1Vk" eventType="touchUpInside" id="RhB-TP-YtR"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hgD-UT-Cxu" userLabel="Google Button" customClass="MDCButton">
                                         <rect key="frame" x="127.5" y="0.0" width="115.5" height="36"/>
                                         <color key="backgroundColor" red="0.86666666670000003" green="0.29411764709999999" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="30"/>
                                         <state key="normal" title="G"/>
+                                        <connections>
+                                            <action selector="googleButtonPressed:" destination="ZHa-zH-1Vk" eventType="touchUpInside" id="hR3-hb-dst"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -81,6 +87,9 @@
                                 <state key="normal" title="Iniciar sesión">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="loginButtonPressed:" destination="ZHa-zH-1Vk" eventType="touchUpInside" id="dkP-rs-Qdr"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CLu-gn-R8h">
                                 <rect key="frame" x="64" y="597" width="247" height="30"/>
@@ -120,6 +129,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Eg1-ab-151"/>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="FY1-fc-vG8" id="9AW-oq-lsZ"/>
+                        <outlet property="passwordTextField" destination="EKo-sV-Xp0" id="8vQ-6K-z0i"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kjg-DK-NeC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
