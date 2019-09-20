@@ -17,18 +17,6 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="D1D-z2-gHN">
-                                <rect key="frame" x="0.0" y="-2052" width="414" height="5000"/>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" red="0.58039215690000001" green="0.21569153669999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="D1D-z2-gHN" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="5FO-Ca-9Ea"/>
-                            <constraint firstItem="D1D-z2-gHN" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Oi9-2T-FCy"/>
-                            <constraint firstItem="D1D-z2-gHN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="adl-5k-O8d"/>
-                            <constraint firstItem="D1D-z2-gHN" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="wb4-Iq-Nba"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
@@ -37,7 +25,4 @@
             <point key="canvasLocation" x="52.173913043478265" y="375"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="Logo.jpg" width="5000" height="5000"/>
-    </resources>
 </document>
