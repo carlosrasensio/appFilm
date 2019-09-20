@@ -14,13 +14,10 @@ class FilmBrowser: UIViewController {
     @IBOutlet var inputTextField: UITextField!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var overviewTextView: UITextView!
-    let apiKey = "5d8bb741e4498fd5448bc0738a12eb52" // Clave API TMDB
-    let apiKeyMC = "be81de187602117dd8739297ab21d8a0"   // Clave API meaningcloud (MC)
-    var i = 0   // Se declara esta variable fuera para que el valor de i se vaya incrementando.
-    
     
     // MARK: - Constants
-    let apiKey = "5d8bb741e4498fd5448bc0738a12eb52" // Clave de la API para cada usuario.
+    let apiKey = "5d8bb741e4498fd5448bc0738a12eb52" // Clave API TMDB
+    let apiKeyMC = "be81de187602117dd8739297ab21d8a0"   // Clave API meaningcloud (MC)
     
     // MARK: - Global variables
     var index = 0   // Se declara esta variable fuera para que el valor de i se vaya incrementando.
@@ -101,12 +98,12 @@ class FilmBrowser: UIViewController {
                 let recomJSON = try JSONSerialization.jsonObject(with: recomData, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary
                 let recomResultsArray: NSArray = (recomJSON!["results"] as? NSArray)!
                 // Se obtiene una recomendación cada vez que se pulsa el botón:
-                let recomFilmInfo: NSDictionary = recomResultsArray[i] as! NSDictionary
+                let recomFilmInfo: NSDictionary = recomResultsArray[index] as! NSDictionary
                 // Se cogen los datos deseados del arreglo.
                 let title = recomFilmInfo["title"] as? String
                 print("\nTitulo recomendado: " + title!)
                 self.titleLabel.text = "\(title!)"
-                i += 1  // Se incrementa el valor de i para que se obtengan más películas al pulsar el botón recomendación.
+                index += 1  // Se incrementa el valor de i para que se obtengan más películas al pulsar el botón recomendación.
                 let overview = recomFilmInfo["overview"] as? String // Se coge el dato deseado del arreglo.
                 print("Resumen: " + overview! + "\n")
                 self.overviewTextView.text = "\(overview!)"
@@ -118,7 +115,8 @@ class FilmBrowser: UIViewController {
             print("Error en la obtención del ID de la película")
         }
         // ******************************** FIN TMDB **************************************
-        // ******************************** INICIO MEANINGCLOUD **************************************
+        
+        // ***************************** INICIO MEANINGCLOUD ***********************************
         let parrafoModifyMC = modifyInputMC(input: parrafoMC)
         var topics:[String] = ["", "", "", "", ""]
         let recomResultsArray: NSArray
@@ -140,12 +138,13 @@ class FilmBrowser: UIViewController {
                 topics[i] = (recomFilmInfo["form"] as? String)!
                 let relevance = recomFilmInfo["relevance"] as? String
                 print("Form: " + topics[i] + " [Relevance: " + relevance! + "]")
-                i = i+1
+                i = i + 1
             }
         } catch {
             print("Error en la obtención de los tópicos")
         }
         // ******************************** FIN MEANINGCLOUD **************************************
+        
         // ******************************** INICIO KEYWORD **************************************
         for i in 0...(topics.count - 1) {
             print("\n[INFO] Entra al bucle de KW\n")
@@ -241,37 +240,6 @@ class FilmBrowser: UIViewController {
         alert.addAction(actionOK)  // Se añade la actionOK a la alerta.
         self.present(alert, animated: true, completion: nil)   // Presentación de la alerta.
         
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-    }
-    
-    func apiCall(idApiURL:String, arreglo:String, campos:[String]) -> [String] {
-        let campos:[String] = []
-        guard let idURL = URL(string: idApiURL) else {
-            print("Error en la primera descarga de datos del archivo JSON (ID)")
-            return campos
-        } // guard es una especie de if, pero reduce el código al mínimo.
-        guard let idData = try? Data(contentsOf: idURL) // Se descargan los datos del archivo JSON. Primero se pasan esos datos a datos legibles.
-        else {
-            print("Error en la primera descarga de datos del archivo JSON (ID)")
-            return campos
-        }
-        do {
-            let idJSON = try JSONSerialization.jsonObject(with: idData, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary   // Este código se usa SIEMPRE para JSON. Se convierte el archivo JSON en datos. Se usa NSDictionary porque se sabe que son datos de ese tipo. Hay que saber el tipo de dato que es.
-            // Se accede a los arreglos (datos de dentro que nos interesan) del archivo JSON:
-            let idArreglosArray: NSArray = (idJSON![arreglo] as? NSArray)! // Se accede al arreglo.
-            // SOLUCIONAR: cuando al pulsar el botón Recomendación (por 21ª vez) se llegue al final de la página 1, pasar a la página 2.
-            let arreglo:NSDictionary = idArreglosArray[0] as! NSDictionary    // Se ha entrado al arreglo.
-            let campo1 = arreglo[campos[0]] as! String // Se coge el dato deseado del arreglo.
-            let campo2 = arreglo[campos[1]] as! String
-        } catch {
-            print("Error al obtener la info del JSON")
-        }
-        
-        return campos
     }
 
 }
