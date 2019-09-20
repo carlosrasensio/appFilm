@@ -96,10 +96,13 @@
                     <navigationItem key="navigationItem" title="Menu" id="kzg-1H-Rzl">
                         <barButtonItem key="rightBarButtonItem" title="Logout" id="TpV-S1-LXk">
                             <connections>
-                                <action selector="logoutButtonPressed:" destination="tFS-jf-ClI" id="Ufe-oc-jZb"/>
+                                <action selector="authButtonPressed:" destination="tFS-jf-ClI" id="Thp-KJ-YCr"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="authButton" destination="TpV-S1-LXk" id="mk9-AB-BBe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HCK-sB-zXn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
