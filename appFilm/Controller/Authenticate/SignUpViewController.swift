@@ -93,7 +93,7 @@ class SignUpViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDele
             flag = false
         }
         if flag {
-            if (repeatPasswordTextField.text == passwordTextField.text) {
+            if (passwordTextField.text!.count > 5 && (repeatPasswordTextField.text == passwordTextField.text)) {
                 print("\nCampos rellenados correctamente\n")
                 self.loggedUser.name = nameTextField.text!
                 self.loggedUser.lastName = lastnameTextField.text!
@@ -101,11 +101,30 @@ class SignUpViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDele
                 self.loggedUser.signedIn = true
                 self.saveLoggedUser(loggedUser: self.loggedUser)
                 Auth.auth().createUser(withEmail: self.loggedUser.email, password: passwordTextField.text!) { (authResult, error) in
-                    guard let user = authResult?.user else { return }
-                    print("\nUsuario autenticado en Firebase: ")
-                    print("Nombre: \(user.displayName), Email: \(user.email), ID Firebase: \(user.uid)\n")
-                    self.goToScreen(storyboard: "Authenticate", screen: "Login")
+                    
+                    if error != nil {
+                        if let errCode = AuthErrorCode(rawValue: error!._code) {
+                            switch errCode {
+                            case .invalidEmail:
+                                print("Email invalido")
+                                self.showAlert(title: "ERROR", message: "El formato del email introducido es incorrecto.")
+                            case .emailAlreadyInUse:
+                                print("Email en uso")
+                                self.showAlert(title: "ERROR", message: "El email introducido ya está utilizado. Por favor, utilice uno distinto o inicie sesión")
+                            default:
+                                print("Create User Error: \(error!)")
+                            }
+                        }
+                    } else {
+                        guard let user = authResult?.user else { return }
+                        print("\nUsuario autenticado en Firebase: ")
+                        print("Nombre: \(user.displayName), Email: \(user.email), ID Firebase: \(user.uid)\n")
+                        self.goToScreen(storyboard: "Authenticate", screen: "Login")
+                    }
                 }
+            } else if (passwordTextField.text!.count < 6) {
+                print("\n[!] ERROR: La contraseña debe contener al menos 6 caracteres.\n")
+                self.showAlert(title: "ERROR", message: "La contraseña debe contener al menos 6 caracteres.")
             } else {
                 print("\n[!] ERROR: Las contraseñas deben coincidir.\n")
                 self.showAlert(title: "ERROR", message: "La contraseña debe coincidir en los dos campos.")
