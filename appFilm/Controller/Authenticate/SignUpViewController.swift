@@ -38,6 +38,12 @@ class SignUpViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        // Instantiate controllers
+//        nameTextFieldController = MDCTextInputControllerFilled(textInput: nameTextField)
+//        lastnameTextFieldController = MDCTextInputControllerFilled(textInput: lastnameTextField)
+//        emailTextFieldController = MDCTextInputControllerFilled(textInput: emailTextField)
+//        passwordTextFieldController = MDCTextInputControllerFilled(textInput: passwordTextField)
+//        repeatPasswordTextFieldController = MDCTextInputControllerFilled(textInput: repeatPasswordTextField)
     }
     
     // MARK: - Buttons action
@@ -98,20 +104,13 @@ class SignUpViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDele
                     guard let user = authResult?.user else { return }
                     print("\nUsuario autenticado en Firebase: ")
                     print("Nombre: \(user.displayName), Email: \(user.email), ID Firebase: \(user.uid)\n")
-                    self.dismiss(animated: true, completion: nil)
+                    self.goToScreen(storyboard: "Authenticate", screen: "Login")
                 }
             } else {
                 print("\n[!] ERROR: Las contraseñas deben coincidir.\n")
                 self.showAlert(title: "ERROR", message: "La contraseña debe coincidir en los dos campos.")
             }
         }
-        
-        // Instantiate controllers
-        nameTextFieldController = MDCTextInputControllerFilled(textInput: nameTextField)
-        lastnameTextFieldController = MDCTextInputControllerFilled(textInput: lastnameTextField)
-        emailTextFieldController = MDCTextInputControllerFilled(textInput: emailTextField)
-        passwordTextFieldController = MDCTextInputControllerFilled(textInput: passwordTextField)
-        repeatPasswordTextFieldController = MDCTextInputControllerFilled(textInput: repeatPasswordTextField)
     }
     
     // MARK: - Google sign up

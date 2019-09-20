@@ -18,7 +18,7 @@
         <!--Login View Controller-->
         <scene sceneID="39e-cx-Vpk">
             <objects>
-                <viewController storyboardIdentifier="LoginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ZHa-zH-1Vk" customClass="LoginViewController" customModule="appFilm" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Login" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ZHa-zH-1Vk" customClass="LoginViewController" customModule="appFilm" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JWA-6T-NiC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -151,7 +151,7 @@
         <!--Sign Up View Controller-->
         <scene sceneID="Iss-Er-IBh">
             <objects>
-                <viewController id="R3a-Dq-GOo" customClass="SignUpViewController" customModule="appFilm" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUp" id="R3a-Dq-GOo" customClass="SignUpViewController" customModule="appFilm" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cWF-W4-nAM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

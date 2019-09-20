@@ -36,6 +36,10 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
         
         GIDSignIn.sharedInstance().uiDelegate = self
         GIDSignIn.sharedInstance().delegate = self
+        
+//        // Instantiate controllers
+//        emailTextFieldController = MDCTextInputControllerFilled(textInput: emailTextField)
+//        passwordTextFieldController = MDCTextInputControllerFilled(textInput: passwordTextField)
     }
     
     // MARK: - Buttons action
@@ -60,16 +64,13 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
                     print("n[!] ERROR: \(error.localizedDescription)")
                     return
                 } else {
-                    self.loggedUser.name = (user?.user.displayName)!
+                    self.loggedUser.name = self.functions.readLoggedUser().name
                     self.loggedUser.signedIn = true
-                    self.goToScreen(storyboard: "Main", screen: "Menu")
+                    self.goToScreen(storyboard: "Main", screen: "rootMainStoryboard")
                 }
                 
             }
         }
-        // Instantiate controllers
-        emailTextFieldController = MDCTextInputControllerFilled(textInput: emailTextField)
-        passwordTextFieldController = MDCTextInputControllerFilled(textInput: passwordTextField)
     }
     
     @IBAction func facebookButtonPressed(_ sender: Any) {
