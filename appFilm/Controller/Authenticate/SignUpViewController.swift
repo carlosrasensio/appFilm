@@ -38,6 +38,74 @@ class SignUpViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    }
+    
+    // MARK: - Buttons action
+    @IBAction func signUpBtnPressed(_ sender: Any) {
+        signUpBasic()
+    }
+    
+    @IBAction func facebookButtonPressed(_ sender: Any) {
+        LoginViewController().loginWithFaceBook()
+    }
+    
+    @IBAction func googleButtonPressed(_ sender: Any) {
+        GIDSignIn.sharedInstance()?.signIn()
+    }
+    
+    // MARK: - Basic sign up
+    func signUpBasic() {
+        var flag = true
+        if (nameTextField == nil) {
+            print("\n[!] ERROR: Necesitas añadir tu nombre\n")
+            //showAlert(title: "ERROR", message: "Es necesario rellenar todos los campos.")
+            nameTextFieldController?.setErrorText("Es necesario introducir un nombre.", errorAccessibilityValue: nil)
+            flag = false
+        }
+        if(lastnameTextField == nil) {
+            print("\n[!] ERROR: Necesitas añadir tu apellido\n")
+            lastnameTextFieldController?.setErrorText("Es necesario introducir un apellido.", errorAccessibilityValue: nil)
+            flag = false
+        }
+        if(emailTextField == nil) {
+            print("\n[!] ERROR: Necesitas añadir tu email\n")
+            emailTextFieldController?.setErrorText("Es necesario introducir un email.", errorAccessibilityValue: nil)
+            flag = false
+        }
+        if(passwordTextField == nil) {
+            print("\n[!] ERROR: Necesitas añadir tu contraseña\n")
+            passwordTextFieldController?.setErrorText("Es necesario introducir una contraseña.", errorAccessibilityValue: nil)
+            flag = false
+        }
+        if(repeatPasswordTextField == nil) {
+            print("\n[!] ERROR: Necesitas añadir tu contraseña de nuevo\n")
+            repeatPasswordTextFieldController?.setErrorText("Es necesario introducir una contraseña.", errorAccessibilityValue: nil)
+            flag = false
+        }
+        if(repeatPasswordTextField != nil && repeatPasswordTextField.text != passwordTextField.text){
+            repeatPasswordTextFieldController?.setErrorText("Las contraseñas deben coincidir.", errorAccessibilityValue: nil)
+            flag = false
+        }
+        if flag {
+            if (repeatPasswordTextField.text == passwordTextField.text) {
+                print("\nCampos rellenados correctamente. Se procede a hacer la llamada a la API\n")
+                self.loggedUser.name = nameTextField.text!
+                self.loggedUser.lastName = lastnameTextField.text!
+                self.loggedUser.email = emailTextField.text!
+                self.loggedUser.signedIn = true
+                self.saveLoggedUser(loggedUser: self.loggedUser)
+                Auth.auth().createUser(withEmail: self.loggedUser.email, password: passwordTextField.text!) { (authResult, error) in
+                    guard let user = authResult?.user else { return }
+                    print("\nUsuario autenticado en Firebase: ")
+                    print("Nombre: \(user.displayName), Email: \(user.email), ID Firebase: \(user.uid)\n")
+                    self.dismiss(animated: true, completion: nil)
+                }
+            } else {
+                print("\n[!] ERROR: Las contraseñas deben coincidir.\n")
+                self.showAlert(title: "ERROR", message: "La contraseña debe coincidir en los dos campos.")
+            }
+        }
+        
         // Instantiate controllers
         nameTextFieldController = MDCTextInputControllerFilled(textInput: nameTextField)
         lastnameTextFieldController = MDCTextInputControllerFilled(textInput: lastnameTextField)
@@ -46,25 +114,7 @@ class SignUpViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDele
         repeatPasswordTextFieldController = MDCTextInputControllerFilled(textInput: repeatPasswordTextField)
     }
     
-    // MARK: - Keyboard
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        view.endEditing(true)
-        super.touchesBegan(touches, with: event)
-    }
-    
-    // MARK: - Buttons action
-    @IBAction func signUpBtnPressed(_ sender: Any) {
-        GIDSignIn.sharedInstance()?.signIn()
-    }
-    
-    @IBAction func facebookButtonPressed(_ sender: Any) {
-        LoginViewController().loginWithFaceBook()
-    }
-    
-    @IBAction func googleButtonPressed(_ sender: Any) {
-    }
-    
-    // MARK: - Google login
+    // MARK: - Google sign up
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         
         print("\n\nEntra en la funcion sign (GOOGLE) de SignUpViewController\n")
@@ -113,6 +163,31 @@ class SignUpViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDele
         let storyboard = UIStoryboard(name: storyboard, bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: screen)
         self.present(controller, animated: true, completion: nil)
+    }
+    
+    // MARK: - Keyboard
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+        super.touchesBegan(touches, with: event)
+    }
+    
+    // MARK: UITextFieldDelegate methods
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        switch textField.placeholder {
+        case "Nombre":
+            nameTextFieldController?.setErrorText(nil, errorAccessibilityValue: nil)
+        case "Apellido":
+            lastnameTextFieldController?.setErrorText(nil, errorAccessibilityValue: nil)
+        case "Email":
+            emailTextFieldController?.setErrorText(nil, errorAccessibilityValue: nil)
+        case "Contraseña":
+            passwordTextFieldController?.setErrorText(nil, errorAccessibilityValue: nil)
+        case "Repetir contraseña":
+            repeatPasswordTextFieldController?.setErrorText(nil, errorAccessibilityValue: nil)
+        default:
+            print("Case default textFieldDidBeginEditing")
+            break
+        }
     }
     
 }
