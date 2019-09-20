@@ -12,6 +12,7 @@
 		991201802326E0C9001A6AB5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9912017F2326E0C9001A6AB5 /* LoginViewController.swift */; };
 		991201832326E0ED001A6AB5 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991201822326E0ED001A6AB5 /* SignUpViewController.swift */; };
 		995FFD16232D4998005B1E72 /* FilmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995FFD15232D4998005B1E72 /* FilmModel.swift */; };
+		99E541042335035300BD0522 /* AuthenticationMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E541032335035300BD0522 /* AuthenticationMenu.swift */; };
 		DD13B83F220A807600F5F3A4 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD13B83E220A807600F5F3A4 /* Menu.swift */; };
 		DD13B843220A838100F5F3A4 /* Logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DD13B842220A838100F5F3A4 /* Logo.jpg */; };
 		DDC11715220A49FB003B1B01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC11714220A49FB003B1B01 /* AppDelegate.swift */; };
@@ -31,6 +32,7 @@
 		9912017F2326E0C9001A6AB5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		991201822326E0ED001A6AB5 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		995FFD15232D4998005B1E72 /* FilmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmModel.swift; sourceTree = "<group>"; };
+		99E541032335035300BD0522 /* AuthenticationMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationMenu.swift; sourceTree = "<group>"; };
 		DD13B83E220A807600F5F3A4 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		DD13B842220A838100F5F3A4 /* Logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Logo.jpg; sourceTree = "<group>"; };
 		DDC11711220A49FB003B1B01 /* appFilm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = appFilm.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				DD13B83E220A807600F5F3A4 /* Menu.swift */,
+				99E541032335035300BD0522 /* AuthenticationMenu.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDC1172A220A4AF4003B1B01 /* FilmBrowser.swift in Sources */,
+				99E541042335035300BD0522 /* AuthenticationMenu.swift in Sources */,
 				DDC1171D220A49FB003B1B01 /* appFilm.xcdatamodeld in Sources */,
 				991201802326E0C9001A6AB5 /* LoginViewController.swift in Sources */,
 				995FFD16232D4998005B1E72 /* FilmModel.swift in Sources */,
