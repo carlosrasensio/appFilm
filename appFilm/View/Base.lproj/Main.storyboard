@@ -93,7 +93,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eAI-Ly-ZDu"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Menu" id="kzg-1H-Rzl"/>
+                    <navigationItem key="navigationItem" title="Menu" id="kzg-1H-Rzl">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="TpV-S1-LXk">
+                            <connections>
+                                <action selector="logoutButtonPressed:" destination="tFS-jf-ClI" id="Ufe-oc-jZb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HCK-sB-zXn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

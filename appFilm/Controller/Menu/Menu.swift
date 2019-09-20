@@ -9,11 +9,19 @@
 import UIKit
 
 class Menu: UIViewController {
+    
+    // MARK: - Constants
+    let functions = Functions()
 
+    // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
 
+    // MARK: - Firebase logout
+    @IBAction func logoutButtonPressed(_ sender: Any) {
+        let loggedUser = self.functions.readLoggedUser()
+        self.functions.userLogout(loggedUser: loggedUser)
+    }
 }

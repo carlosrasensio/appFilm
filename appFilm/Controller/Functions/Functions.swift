@@ -11,6 +11,9 @@ import Firebase
 
 class Functions {
     
+    // MARK: - Constants
+    let defaults = UserDefaults.standard
+    
     // MARK: - Navigation
     func goToScreen(storyboard: String, screen: String) {
         let storyboard = UIStoryboard(name: storyboard, bundle: nil)
@@ -20,12 +23,20 @@ class Functions {
     
     // MARK: - UserDefaults
     func saveLoggedUser(loggedUser: User) {
-        let defaults = UserDefaults.standard
         let encodedData: Data = NSKeyedArchiver.archivedData(withRootObject: loggedUser)
         defaults.set(encodedData, forKey: "loggedUser")
         defaults.synchronize()
         print("\n\nFunción saveLoggedUser:")
         print("Name: \(loggedUser.name)\nLast Name: \(loggedUser.lastName)\nEmail: \(loggedUser.email)\nSigned: \(loggedUser.signedIn)")
+    }
+    
+    func readLoggedUser() -> User {
+        let decoded  = self.defaults.data(forKey: "loggedUser")
+        let decodedLoggedUser = NSKeyedUnarchiver.unarchiveObject(with: decoded!) as! User
+        print("\n\nFunción readLoggedUser:")
+        print("Name: \(decodedLoggedUser.name)\nLast Name: \(decodedLoggedUser.lastName)\nEmail: \(decodedLoggedUser.email)\nSigned: \(decodedLoggedUser.signedIn)\nID Firebase: \(decodedLoggedUser.idFirebase)")
+        
+        return decodedLoggedUser
     }
     
     // MARK: - Firebase
@@ -37,10 +48,13 @@ class Functions {
         return uid
     }
     
-    func userLogout() {
+    func userLogout(loggedUser: User) {
         let firebaseAuth = Auth.auth()
         do {
             try firebaseAuth.signOut()
+            loggedUser.signedIn = false
+            saveLoggedUser(loggedUser: loggedUser)
+            _ = readLoggedUser()
         } catch let signOutError as NSError {
             print ("Error signing out: \(signOutError.localizedDescription)")
             showAlert(title: "ERROR", message: signOutError.localizedDescription)
