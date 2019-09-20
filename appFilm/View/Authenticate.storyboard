@@ -24,14 +24,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Inicia sesión con:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gxu-Kn-II9">
-                                <rect key="frame" x="64" y="104" width="247" height="22.5"/>
+                                <rect key="frame" x="64" y="60" width="247" height="22.5"/>
                                 <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18.5"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="nJX-WX-2dL">
-                                <rect key="frame" x="66" y="150.5" width="243" height="36"/>
+                                <rect key="frame" x="66" y="106.5" width="243" height="36"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pcb-ua-V0h" userLabel="Facebook Button" customClass="MDCButton">
                                         <rect key="frame" x="0.0" y="0.0" width="115.5" height="36"/>
@@ -56,26 +56,26 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="o con:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iQe-1O-Hoz">
-                                <rect key="frame" x="64" y="250.5" width="247" height="22.5"/>
+                                <rect key="frame" x="64" y="206.5" width="247" height="22.5"/>
                                 <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18.5"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Correo electrónico" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FY1-fc-vG8" customClass="MDCTextField">
-                                <rect key="frame" x="64" y="297" width="247" height="30"/>
+                                <rect key="frame" x="64" y="253" width="247" height="30"/>
                                 <color key="textColor" red="0.47058823529999999" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="BentonSans-Book" family="BentonSans-Book" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contraseña" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EKo-sV-Xp0" customClass="MDCTextField">
-                                <rect key="frame" x="64" y="351" width="247" height="30"/>
+                                <rect key="frame" x="64" y="307" width="247" height="30"/>
                                 <color key="textColor" red="0.47058823529999999" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="BentonSans-Book" family="BentonSans-Book" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7q9-29-ib8" customClass="MDCButton">
-                                <rect key="frame" x="64" y="405" width="247" height="38"/>
+                                <rect key="frame" x="64" y="361" width="247" height="38"/>
                                 <color key="backgroundColor" red="0.0" green="0.43529411759999997" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <state key="normal" title="Iniciar sesión">
@@ -89,6 +89,9 @@
                                 <state key="normal" title="Si no tienes cuenta, REGÍSTRATE">
                                     <color key="titleColor" red="0.0039215686269999999" green="0.42352941179999998" blue="0.63529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="R3a-Dq-GOo" kind="show" id="gAk-qC-UKy"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.95686274510000002" green="0.95294117649999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -131,45 +134,45 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Regístrate con:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XcH-Ln-leb">
-                                <rect key="frame" x="64" y="80" width="247" height="22.5"/>
+                                <rect key="frame" x="64" y="36" width="247" height="22.5"/>
                                 <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18.5"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="o con:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tau-EO-NAC">
-                                <rect key="frame" x="64" y="178.5" width="247" height="22.5"/>
+                                <rect key="frame" x="64" y="134.5" width="247" height="22.5"/>
                                 <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18.5"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Apellido" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E6T-5p-7Zx" customClass="MDCTextField">
-                                <rect key="frame" x="64" y="263" width="247" height="30"/>
+                                <rect key="frame" x="64" y="219" width="247" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Repetir contraseña" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nls-bo-28u" customClass="MDCTextField">
-                                <rect key="frame" x="64" y="401" width="247" height="30"/>
+                                <rect key="frame" x="64" y="357" width="247" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Correo electrónico" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kPE-vY-8Td" customClass="MDCTextField">
-                                <rect key="frame" x="64" y="309" width="247" height="30"/>
+                                <rect key="frame" x="64" y="265" width="247" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contraseña" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j3v-Km-J5y" customClass="MDCTextField">
-                                <rect key="frame" x="64" y="355" width="247" height="30"/>
+                                <rect key="frame" x="64" y="311" width="247" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8pZ-1B-3yP" customClass="MDCButton">
-                                <rect key="frame" x="64" y="455" width="247" height="30"/>
+                                <rect key="frame" x="64" y="411" width="247" height="30"/>
                                 <color key="backgroundColor" red="0.0039215686269999999" green="0.42352941179999998" blue="0.63529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Registrarse">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -181,15 +184,18 @@
                                 <state key="normal" title="Si ya tienes cuenta, INICIA SESIÓN">
                                     <color key="titleColor" red="0.0039215686269999999" green="0.42352941179999998" blue="0.63529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="ZHa-zH-1Vk" kind="show" id="qul-wJ-5Tl"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nombre" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aMV-vB-cXT" customClass="MDCTextField">
-                                <rect key="frame" x="64" y="217" width="247" height="30"/>
+                                <rect key="frame" x="64" y="173" width="247" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KIG-zF-T15" userLabel="Facebook Button">
-                                <rect key="frame" x="64" y="118.5" width="117.5" height="36"/>
+                                <rect key="frame" x="64" y="74.5" width="117.5" height="36"/>
                                 <color key="backgroundColor" red="0.23137254900000001" green="0.34901960780000002" blue="0.59607843140000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="2oG-E6-Ewk"/>
@@ -201,7 +207,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wIX-i8-ufy" userLabel="Google Button">
-                                <rect key="frame" x="193.5" y="118.5" width="117.5" height="36"/>
+                                <rect key="frame" x="193.5" y="74.5" width="117.5" height="36"/>
                                 <color key="backgroundColor" red="0.86666666670000003" green="0.29411764709999999" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="30"/>
                                 <state key="normal" title="G">
@@ -335,4 +341,8 @@
     <resources>
         <image name="Logo.jpg" width="5000" height="5000"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="gAk-qC-UKy"/>
+        <segue reference="qul-wJ-5Tl"/>
+    </inferredMetricsTieBreakers>
 </document>
