@@ -36,21 +36,40 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
         
         GIDSignIn.sharedInstance().uiDelegate = self
         GIDSignIn.sharedInstance().delegate = self
-        
-        // Instantiate controllers
-        emailTextFieldController = MDCTextInputControllerFilled(textInput: emailTextField)
-        passwordTextFieldController = MDCTextInputControllerFilled(textInput: passwordTextField)
-
-    }
-    
-    // MARK: - Keyboard
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        view.endEditing(true)
-        super.touchesBegan(touches, with: event)
     }
     
     // MARK: - Buttons action
     @IBAction func loginButtonPressed(_ sender: Any) {
+        var flag = true
+        if(emailTextField == nil) {
+            print("\n[!] ERROR: Necesitas añadir tu email\n")
+            emailTextFieldController?.setErrorText("Es necesario introducir un email.", errorAccessibilityValue: nil)
+            flag = false
+        }
+        if(passwordTextField == nil) {
+            print("\n[!] ERROR: Necesitas añadir tu contraseña\n")
+            passwordTextFieldController?.setErrorText("Es necesario introducir una contraseña.", errorAccessibilityValue: nil)
+            flag = false
+        }
+        if flag {
+            self.loggedUser.email = emailTextField.text!
+            let pwd = passwordTextField.text
+            Auth.auth().signIn(withEmail: self.loggedUser.email, password: pwd!) { (user, error) in
+                if let error = error{
+                    self.showAlert(title: "ERROR", message: "No existe el usuario indicado. Para acceder a la app tiene que registrarse.")
+                    print("n[!] ERROR: \(error.localizedDescription)")
+                    return
+                } else {
+                    self.loggedUser.name = (user?.user.displayName)!
+                    self.loggedUser.signedIn = true
+                    self.goToScreen(storyboard: "Main", screen: "Menu")
+                }
+                
+            }
+        }
+        // Instantiate controllers
+        emailTextFieldController = MDCTextInputControllerFilled(textInput: emailTextField)
+        passwordTextFieldController = MDCTextInputControllerFilled(textInput: passwordTextField)
     }
     
     @IBAction func facebookButtonPressed(_ sender: Any) {
@@ -182,6 +201,25 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
         let storyboard = UIStoryboard(name: storyboard, bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: screen)
         self.present(controller, animated: true, completion: nil)
+    }
+    
+    // MARK: - Keyboard
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+        super.touchesBegan(touches, with: event)
+    }
+    
+    // MARK: UITextFieldDelegate methods
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        switch textField.placeholder {
+        case "Email":
+            emailTextFieldController?.setErrorText(nil, errorAccessibilityValue: nil)
+        case "Contraseña":
+            passwordTextFieldController?.setErrorText(nil, errorAccessibilityValue: nil)
+        default:
+            print("Case default textFieldDidBeginEditing")
+            break
+        }
     }
 
 }
