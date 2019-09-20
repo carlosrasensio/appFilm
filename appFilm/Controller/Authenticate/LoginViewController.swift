@@ -80,7 +80,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
             guard let authentication = user.authentication else { return }
             let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
                                                            accessToken: authentication.accessToken)
-            firebaseAuth(credential: credential)
+            self.firebaseAuth(credential: credential)
         }
         
     }
@@ -128,7 +128,8 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
                         }
                     }
                     self.saveLoggedUser(loggedUser: self.loggedUser)
-                    //firebaseAuth()
+                    let credential = FacebookAuthProvider.credential(withAccessToken: AccessToken.current!.tokenString)
+                    self.firebaseAuth(credential: credential)
                 }
             })
         }
