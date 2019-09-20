@@ -24,8 +24,10 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
     var emailTextFieldController: MDCTextInputController?
     var passwordTextFieldController: MDCTextInputController?
     
-    // MARK: - Global variables
+    // MARK: - Constants
     let functions = Functions()
+    
+    // MARK: - Global variables
     var loggedUser = User(name: "", lastName: "", email: "", signedIn: false, idFirebase: "", idGoogle: "", idFacebook: "")
     
     // MARK: - Life cycle
@@ -62,7 +64,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
     // MARK: - Google login
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         
-        print("\n\nEntra en la funcion sign (GOOGLE)\n")
+        print("\n\nEntra en la funcion sign (GOOGLE) de LoginViewController\n")
         
         if let error = error {
             showAlert(title: "ERROR", message: error.localizedDescription)
@@ -156,16 +158,6 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
             }
         })
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     // MARK: - Alert
     func showAlert(title: String, message: String) {

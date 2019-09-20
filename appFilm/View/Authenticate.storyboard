@@ -200,6 +200,9 @@
                                 <state key="normal" title="Registrarse">
                                     <color key="titleColor" red="0.58039215690000001" green="0.21569153669999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="signUpBtnPressed:" destination="R3a-Dq-GOo" eventType="touchUpInside" id="Gmh-Vj-tXF"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nMy-Zg-Hbb">
                                 <rect key="frame" x="64" y="621" width="247" height="30"/>
@@ -233,6 +236,9 @@
                                         <integer key="value" value="18"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="facebookButtonPressed:" destination="R3a-Dq-GOo" eventType="touchUpInside" id="dYD-Gp-0uA"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wIX-i8-ufy" userLabel="Google Button">
                                 <rect key="frame" x="193.5" y="74.5" width="117.5" height="36"/>
@@ -246,6 +252,9 @@
                                         <integer key="value" value="18"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="googleButtonPressed:" destination="R3a-Dq-GOo" eventType="touchUpInside" id="Pb9-U3-Lmr"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.2527923882" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -287,6 +296,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="EbL-Vp-Nyr"/>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="kPE-vY-8Td" id="GzB-lh-XUT"/>
+                        <outlet property="lastnameTextField" destination="E6T-5p-7Zx" id="9BJ-qV-ITu"/>
+                        <outlet property="nameTextField" destination="aMV-vB-cXT" id="6tb-iY-v7f"/>
+                        <outlet property="passwordTextField" destination="j3v-Km-J5y" id="fWl-IT-f1u"/>
+                        <outlet property="repeatPasswordTextField" destination="Nls-bo-28u" id="yWG-Ma-K95"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L8s-3j-Ogw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
