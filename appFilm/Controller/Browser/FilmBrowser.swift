@@ -16,8 +16,9 @@ class FilmBrowser: UIViewController {
     @IBOutlet var overviewTextView: UITextView!
     
     // MARK: - Constants
-    let apiKey = "5d8bb741e4498fd5448bc0738a12eb52" // Clave API TMDB
+    let apiKeyTMDB = "5d8bb741e4498fd5448bc0738a12eb52" // Clave API TMDB
     let apiKeyMC = "be81de187602117dd8739297ab21d8a0"   // Clave API meaningcloud (MC)
+    let functions = Functions()
     
     // MARK: - Global variables
     var index = 0   // Se declara esta variable fuera para que el valor de i se vaya incrementando.
@@ -64,11 +65,11 @@ class FilmBrowser: UIViewController {
     
     // MARK: - Get recommended film
     // Función que devuelve una película recomendada a la película pasada como input:
-    func getRecommendedFilm(filmInput : String) -> Void {
-        let film = modifyInputTMDB(input: filmInput)
+    func getRecommendedFilm(filmInput : String) {
+        let film = functions.modifyInputTMDB(input: filmInput)
         var parrafoMC = ""
         // ******************************** INICIO TMDB **************************************
-        let idApiURL = "https://api.themoviedb.org/3/search/movie?api_key=\(apiKey)&language=en-US&query=\(film)"
+        let idApiURL = "https://api.themoviedb.org/3/search/movie?api_key=\(apiKeyTMDB)&language=en-US&query=\(film)"
         guard let idURL = URL(string: idApiURL) else { return } // guard es una especie de if, pero reduce el código al mínimo.
         guard let idData = try? Data(contentsOf: idURL) // Se descargan los datos del archivo JSON. Primero se pasan esos datos a datos legibles.
         else {
@@ -87,7 +88,7 @@ class FilmBrowser: UIViewController {
             print("\nID: " + idString ?? 0)    // El '?? 0' es para que no aparezca como Optional.
             
             // ******** Una vez se tenga el ID se acceden a los datos de la película *********
-            let recomApiURL = "https://api.themoviedb.org/3/movie/\(idString!)/similar?api_key=\(apiKey)&language=en&page=1"
+            let recomApiURL = "https://api.themoviedb.org/3/movie/\(idString!)/similar?api_key=\(apiKeyTMDB)&language=en&page=1"
             guard let recomURL = URL(string: recomApiURL) else { return }   // guard es una especie de if, pero reduce el código al mínimo.
             guard let recomData = try? Data(contentsOf: recomURL) // Se descargan los datos del archivo JSON. Primero se pasan esos datos a datos legibles.
                 else {
@@ -117,7 +118,7 @@ class FilmBrowser: UIViewController {
         // ******************************** FIN TMDB **************************************
         
         // ***************************** INICIO MEANINGCLOUD ***********************************
-        let parrafoModifyMC = modifyInputMC(input: parrafoMC)
+        let parrafoModifyMC = functions.modifyInputMC(input: parrafoMC)
         var topics:[String] = ["", "", "", "", ""]
         let recomResultsArray: NSArray
         let recomApiUrlMC = "https://api.meaningcloud.com/topics-2.0?key=\(apiKeyMC)&of=json&lang=en&ilang=en&txt=\(parrafoModifyMC)&tt=e&uw=y" // tt=e --> Entities; tt=c --> Concepts
@@ -148,8 +149,8 @@ class FilmBrowser: UIViewController {
         // ******************************** INICIO KEYWORD **************************************
         for i in 0...(topics.count - 1) {
             print("\n[INFO] Entra al bucle de KW\n")
-            let topicModified = modifyInputMC(input: topics[i])
-            let recomApiUrlKW = "https://api.themoviedb.org/3/search/movie?api_key=\(apiKey)&language=en-US&query=\(topicModified)&page=1&include_adult=false"
+            let topicModified = functions.modifyInputMC(input: topics[i])
+            let recomApiUrlKW = "https://api.themoviedb.org/3/search/movie?api_key=\(apiKeyTMDB)&language=en-US&query=\(topicModified)&page=1&include_adult=false"
             print("\nTópico: " + topics[i])
             guard let recomUrlKW = URL(string: recomApiUrlKW) else { return }
             guard let recomData = try? Data(contentsOf: recomUrlKW)
@@ -177,53 +178,6 @@ class FilmBrowser: UIViewController {
         }
         print("\nFin. No hay más tópicos")
         // ******************************** FIN KEYWORD **************************************
-    }
-    
-    // Función que modifica el input para que se adapte a las necesidades de la API:
-    func modifyInputTMDB(input : String) -> String {
-        
-        var inputArray = input.components(separatedBy: " ") // Se crea un array para separar las palabras del input. Cada posición del array contiene una palabra.
-        let sizeArray = inputArray.count  // Se obtiene el tamaño del array.
-        var output : String = ""   // Se declara el output.
-        
-        for i in 0...sizeArray - 1 {  // Bucle for para recorrer el array.
-            
-            if (output == "") { // Si es la primera palabra del input.
-                
-                output = inputArray[0]
-                
-            } else {    // Si ya se tiene la primera palabra.
-                
-                output = "\(output)+\(inputArray[i])"   // Se concatenan con un +, necesario para buscar en la API.
-                
-            }
-        }
-        
-        return output
-        
-    }
-    
-    func modifyInputMC(input : String) -> String {
-        
-        var inputArray = input.components(separatedBy: " ") // Se crea un array para separar las palabras del input. Cada posición del array contiene una palabra.
-        let sizeArray = inputArray.count  // Se obtiene el tamaño del array.
-        var output : String = ""   // Se declara el output.
-        
-        for i in 0...sizeArray - 1 {  // Bucle for para recorrer el array.
-            
-            if (output == "") { // Si es la primera palabra del input.
-                
-                output = inputArray[0]
-                
-            } else {    // Si ya se tiene la primera palabra.
-                
-                output = "\(output)%20\(inputArray[i])"   // Se concatenan con un %, necesario para buscar en la API.
-                
-            }
-        }
-        
-        return output
-        
     }
     
     // MARK: - Alert function

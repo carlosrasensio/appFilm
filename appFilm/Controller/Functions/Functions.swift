@@ -69,4 +69,52 @@ class Functions {
         //present(alertController, animated: true, completion: nil)
     }
     
+    // MARK: - TMDB
+    func modifyInputTMDB(input : String) -> String {
+        
+        var inputArray = input.components(separatedBy: " ") // Se crea un array para separar las palabras del input. Cada posición del array contiene una palabra.
+        let sizeArray = inputArray.count  // Se obtiene el tamaño del array.
+        var output : String = ""   // Se declara el output.
+        
+        for i in 0...sizeArray - 1 {  // Bucle for para recorrer el array.
+            
+            if (output == "") { // Si es la primera palabra del input.
+                
+                output = inputArray[0]
+                
+            } else {    // Si ya se tiene la primera palabra.
+                
+                output = "\(output)+\(inputArray[i])"   // Se concatenan con un +, necesario para buscar en la API.
+                
+            }
+        }
+        
+        return output
+        
+    }
+    
+    // MARK: - MeaningCloud
+    func modifyInputMC(input : String) -> String {
+        
+        var inputArray = input.components(separatedBy: " ") // Se crea un array para separar las palabras del input. Cada posición del array contiene una palabra.
+        let sizeArray = inputArray.count  // Se obtiene el tamaño del array.
+        var output : String = ""   // Se declara el output.
+        
+        for i in 0...sizeArray - 1 {  // Bucle for para recorrer el array.
+            
+            if (output == "") { // Si es la primera palabra del input.
+                
+                output = inputArray[0]
+                
+            } else {    // Si ya se tiene la primera palabra.
+                
+                output = "\(output)%20\(inputArray[i])"   // Se concatenan con un %, necesario para buscar en la API.
+                
+            }
+        }
+        
+        return output
+        
+    }
+    
 }

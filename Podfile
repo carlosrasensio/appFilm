@@ -8,11 +8,11 @@ target 'appFilm' do
   # Pods for appFilm
 
 	pod 'Firebase/Auth'
-    	pod 'Firebase/Core'
+  pod 'Firebase/Core'
 	pod 'FBSDKCoreKit'
 	pod 'FBSDKShareKit'
-    	pod 'FBSDKLoginKit'
-   	pod 'GoogleSignIn'
-    	pod 'MaterialComponents'
+  pod 'FBSDKLoginKit'
+  pod 'GoogleSignIn'
+  pod 'MaterialComponents'
 
 end
