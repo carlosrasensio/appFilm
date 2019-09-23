@@ -12,8 +12,7 @@ import Firebase
 import FBSDKCoreKit
 import GoogleSignIn
 
-@UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
+@UIApplicationMaiclass AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
     var window: UIWindow?
 

@@ -22,6 +22,8 @@ class FilmBrowser: UIViewController {
     
     // MARK: - Global variables
     var index = 0   // Se declara esta variable fuera para que el valor de i se vaya incrementando.
+    var titleFinal: String = ""
+    var overviewFinal: String = ""
     
     // MARK: - Life cycle
     override func viewDidLoad() {
@@ -103,11 +105,11 @@ class FilmBrowser: UIViewController {
                 // Se cogen los datos deseados del arreglo.
                 let title = recomFilmInfo["title"] as? String
                 print("\nTitulo recomendado: " + title!)
-                self.titleLabel.text = "\(title!)"
+                //self.titleLabel.text = "\(title!)"
                 index += 1  // Se incrementa el valor de i para que se obtengan más películas al pulsar el botón recomendación.
                 let overview = recomFilmInfo["overview"] as? String // Se coge el dato deseado del arreglo.
                 print("Resumen: " + overview! + "\n")
-                self.overviewTextView.text = "\(overview!)"
+                //self.overviewTextView.text = "\(overview!)"
                 parrafoMC = overview!   // Texto que se va a pasar a MC
             } catch {
                 print("Error en la obtención de las películas recomendadas")
@@ -147,37 +149,50 @@ class FilmBrowser: UIViewController {
         // ******************************** FIN MEANINGCLOUD **************************************
         
         // ******************************** INICIO KEYWORD **************************************
+        var flag = true
         for i in 0...(topics.count - 1) {
-            print("\n[INFO] Entra al bucle de KW\n")
-            let topicModified = functions.modifyInputMC(input: topics[i])
-            let recomApiUrlKW = "https://api.themoviedb.org/3/search/movie?api_key=\(apiKeyTMDB)&language=en-US&query=\(topicModified)&page=1&include_adult=false"
-            print("\nTópico: " + topics[i])
-            guard let recomUrlKW = URL(string: recomApiUrlKW) else { return }
-            guard let recomData = try? Data(contentsOf: recomUrlKW)
-            else {
-                print("Error en la segunda descarga de datos del archivo JSON (Keyword)")
-                return
-            }
-            do {
-                let recomJSON = try JSONSerialization.jsonObject(with: recomData, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary
-                let totalResults = recomJSON!["total_results"] as? Int
-                print("\ntotalResults: " + String(totalResults!))
-                if totalResults == 0 {
-                    print("\nNo hay resultados utilizando el tópico siguiente: " + topics[i])
-                } else {
-                    let recomResultsArray: NSArray = (recomJSON!["results"] as? NSArray)!
-                    let recomFilmInfo: NSDictionary = recomResultsArray[0] as! NSDictionary
-                    let title = recomFilmInfo["title"] as? String
-                    print("\nTitulo KW: " + title!)
-                    let overview = recomFilmInfo["overview"] as? String
-                    print("Overview KW: " + overview!)
+            if flag {
+                print("\n[INFO] Entra al bucle de KW\n")
+                let topicModified = functions.modifyInputMC(input: topics[i])
+                let recomApiUrlKW = "https://api.themoviedb.org/3/search/movie?api_key=\(apiKeyTMDB)&language=en-US&query=\(topicModified)&page=1&include_adult=false"
+                print("\nTópico: " + topics[i])
+                guard let recomUrlKW = URL(string: recomApiUrlKW) else { return }
+                guard let recomData = try? Data(contentsOf: recomUrlKW)
+                    else {
+                        print("Error en la segunda descarga de datos del archivo JSON (Keyword)")
+                        return
                 }
-            } catch {
-                print("Error en la obtención de las películas recomendadas por keyword")
+                do {
+                    let recomJSON = try JSONSerialization.jsonObject(with: recomData, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary
+                    let totalResults = recomJSON!["total_results"] as? Int
+                    print("\ntotalResults: " + String(totalResults!))
+                    if totalResults == 0 {
+                        print("\nNo hay resultados utilizando el tópico siguiente: " + topics[i])
+                    } else {
+                        let recomResultsArray: NSArray = (recomJSON!["results"] as? NSArray)!
+                        let recomFilmInfo: NSDictionary = recomResultsArray[0] as! NSDictionary
+                        self.titleFinal = (recomFilmInfo["title"] as? String)!
+                        //self.titleLabel.text = titleFinal
+                        print("\nTitulo KW: " + self.titleFinal)
+                        self.overviewFinal = (recomFilmInfo["overview"] as? String)!
+                        //self.overviewTextView.text = overviewFinal
+                        print("Overview KW: " + self.overviewFinal)
+                        flag = false
+                    }
+                } catch {
+                    print("Error en la obtención de las películas recomendadas por keyword")
+                }
             }
         }
         print("\nFin. No hay más tópicos")
         // ******************************** FIN KEYWORD **************************************
+        
+        // ******************************** INICIO SENTIMIENTOS ******************************
+        let parrafoSentimentsModifyMC = functions.modifyInputMC(input: self.overviewFinal)
+        let urlSentiments = "https://api.meaningcloud.com/sentiment-2.1?key=\(apiKeyMC)&of=json&txt=\(parrafoSentimentsModifyMC)&model=general&lang=en"
+        print(urlSentiments)
+        
+        // ******************************** FIN SENTIMIENTOS ******************************
     }
     
     // MARK: - Alert function
