@@ -22,6 +22,8 @@ class FilmBrowser: UIViewController {
     
     // MARK: - Global variables
     var index = 0   // Se declara esta variable fuera para que el valor de i se vaya incrementando.
+    var array = [FilmModel]()
+    var scoreArray = [String]()
     
     // MARK: - Life cycle
     override func viewDidLoad() {
@@ -117,10 +119,10 @@ class FilmBrowser: UIViewController {
         }
         // ******************************** FIN TMDB **************************************
         
-        // ***************************** INICIO MEANINGCLOUD ***********************************
+        // ***************************** INICIO TOPICOS ***********************************
         let parrafoModifyMC = functions.modifyInputMC(input: parrafoMC)
         var topics:[String] = ["", "", "", "", ""]
-        let recomResultsArray: NSArray
+        let recomResultsArray: NSArray?
         let recomApiUrlMC = "https://api.meaningcloud.com/topics-2.0?key=\(apiKeyMC)&of=json&lang=en&ilang=en&txt=\(parrafoModifyMC)&tt=e&uw=y" // tt=e --> Entities; tt=c --> Concepts
         guard let recomUrlMC = URL(string: recomApiUrlMC) else { return }
         guard let recomDataMC = try? Data(contentsOf: recomUrlMC)
@@ -131,11 +133,11 @@ class FilmBrowser: UIViewController {
         do {
             let recomJSON = try JSONSerialization.jsonObject(with: recomDataMC, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary
             recomResultsArray = (recomJSON!["entity_list"] as? NSArray)!
-            print("\nTópicos encontrados: " + String(recomResultsArray.count))
+            print("\nTópicos encontrados: " + String(recomResultsArray!.count))
             // Se obtienen tópicos de cada película recomendada
             var i:Int = 0
-            while(recomResultsArray.count != 0 && i<recomResultsArray.count && i<5) {
-                let recomFilmInfo: NSDictionary = recomResultsArray[i] as! NSDictionary
+            while(recomResultsArray!.count != 0 && i<recomResultsArray!.count && i<5) {
+                let recomFilmInfo: NSDictionary = recomResultsArray![i] as! NSDictionary
                 topics[i] = (recomFilmInfo["form"] as? String)!
                 let relevance = recomFilmInfo["relevance"] as? String
                 print("Form: " + topics[i] + " [Relevance: " + relevance! + "]")
@@ -144,9 +146,10 @@ class FilmBrowser: UIViewController {
         } catch {
             print("Error en la obtención de los tópicos")
         }
-        // ******************************** FIN MEANINGCLOUD **************************************
+        // ******************************** FIN TOPICOS **************************************
         
         // ******************************** INICIO KEYWORD **************************************
+        print("Topics count: \(topics.count)")
         for i in 0...(topics.count - 1) {
             print("\n[INFO] Entra al bucle de KW\n")
             let topicModified = functions.modifyInputMC(input: topics[i])
@@ -167,17 +170,54 @@ class FilmBrowser: UIViewController {
                 } else {
                     let recomResultsArray: NSArray = (recomJSON!["results"] as? NSArray)!
                     let recomFilmInfo: NSDictionary = recomResultsArray[0] as! NSDictionary
-                    let title = recomFilmInfo["title"] as? String
-                    print("\nTitulo KW: " + title!)
-                    let overview = recomFilmInfo["overview"] as? String
-                    print("Overview KW: " + overview!)
+                    let filmTitle = recomFilmInfo["title"] as? String
+                    print("\nTitulo KW: " + filmTitle!)
+                    let filmOverview = recomFilmInfo["overview"] as? String
+                    print("Overview KW: " + filmOverview!)
+                    
+                    let film = FilmModel(name: filmTitle!, overview: filmOverview!)
+                    array.append(film)
+                    
                 }
             } catch {
                 print("Error en la obtención de las películas recomendadas por keyword")
             }
         }
+        
         print("\nFin. No hay más tópicos")
         // ******************************** FIN KEYWORD **************************************
+        
+        // ******************************** INICIO SENTIMIENTOS ******************************
+        
+        print(array.count)
+        for index in 0...(array.count - 1) {
+            
+            let overview = array[index].overview
+            let overviewModify = functions.modifyInputMC(input: overview!)
+            let sentimentsUrlString = "https://api.meaningcloud.com/sentiment-2.1?key=\(apiKeyMC)&of=json&txt=\(overviewModify)&model=general&lang=en"
+            let sentimentsUrl = URL(string: sentimentsUrlString)
+            if sentimentsUrl == nil {
+                print(sentimentsUrl)
+            }
+            guard let sentimentsData = try? Data(contentsOf: sentimentsUrl!) else {
+                print("Error en la descarga de datos del archivo JSON (Sentimientos)")
+                return
+            }
+            do {
+                let sentimentsJSON = try JSONSerialization.jsonObject(with: sentimentsData, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary
+                print(sentimentsJSON)
+                let score = sentimentsJSON!["score_tag"] as? String
+                print("Score: \(score)")
+                scoreArray.append(score!)
+            } catch {
+                print("Error en la obtención de los sentimientos")
+            }
+            
+        }
+        
+        print(scoreArray)
+        
+        // ******************************** FIN SENTIMIENTOS *********************************
     }
     
     // MARK: - Alert function
