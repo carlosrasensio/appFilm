@@ -26,6 +26,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
     
     // MARK: - Constants
     let functions = Functions()
+    let defaults = UserDefaults.standard
     
     // MARK: - Global variables
     var loggedUser = User(name: "", lastName: "", email: "", signedIn: false, idFirebase: "", idGoogle: "", idFacebook: "")
@@ -38,8 +39,8 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
         GIDSignIn.sharedInstance().delegate = self
         
         // Instantiate controllers
-        emailTextFieldController = MDCTextInputControllerFilled(textInput: emailTextField)
-        passwordTextFieldController = MDCTextInputControllerFilled(textInput: passwordTextField)
+        emailTextFieldController = MDCTextInputControllerUnderline(textInput: emailTextField)
+        passwordTextFieldController = MDCTextInputControllerUnderline(textInput: passwordTextField)
 
     }
     
@@ -152,6 +153,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
                 print("\nLogado con éxito en Firebase. Datos del usuario guardados en loggedUser:")
                 print("Nombre: \(self.loggedUser.name), Apellido: \(self.loggedUser.lastName), Email: \(self.loggedUser.email), Signed: \(self.loggedUser.signedIn), ID Firebase: \(self.loggedUser.idFirebase), ")
                 //self.dismiss(animated: true, completion: nil)
+                self.defaults.set(true, forKey: "SignedIn")
                 self.goToScreen(storyboard: "Main", screen: "rootMainStoryboard")
             } else {
                 self.showAlert(title: "ERROR", message: error!.localizedDescription)

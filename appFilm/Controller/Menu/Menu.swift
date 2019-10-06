@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class Menu: UIViewController {
     
@@ -15,13 +16,14 @@ class Menu: UIViewController {
     
     // MARK: - Constants
     let functions = Functions()
+    let defaults = UserDefaults.standard
 
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let user = self.functions.readLoggedUser()
-        if user.signedIn {
+        let userSigned = defaults.bool(forKey: "SignedIn")
+        if userSigned {
             authButton.title = "Logout"
         } else {
             authButton.title = "Login"
@@ -30,12 +32,20 @@ class Menu: UIViewController {
 
     // MARK: - Firebase logout
     @IBAction func authButtonPressed(_ sender: Any) {
-        let user = self.functions.readLoggedUser()
-        if user.signedIn {
+        //let user = self.functions.readLoggedUser()
+        let userSigned = defaults.bool(forKey: "SignedIn")
+        if userSigned {
             let dialogMessage = UIAlertController(title: "Cerrar sesión", message: "¿Está seguro de querer cerrar sesión?", preferredStyle: .actionSheet)
             let signOutAction = UIAlertAction(title: "Sí", style: .destructive) { (action) in
                 do {
-                    self.functions.userLogout(loggedUser: user)
+                    //self.functions.userLogout(loggedUser: user)
+                    let firebaseAuth = Auth.auth()
+                    do {
+                        try firebaseAuth.signOut()
+                    } catch let signOutError as NSError {
+                        print ("Error signing out: \(signOutError.localizedDescription)")
+                    }
+                    self.defaults.set(false, forKey: "SignedIn")
                     self.goToScreen(storyboard: "Authenticate", screen: "rootAuthenticateStoryboard")
                     print("\nEl usuario ha cerrado sesión con éxito\n")
                 } catch let error {

@@ -30,14 +30,15 @@ class Functions {
         print("Name: \(loggedUser.name)\nLast Name: \(loggedUser.lastName)\nEmail: \(loggedUser.email)\nSigned: \(loggedUser.signedIn)")
     }
     
-    func readLoggedUser() -> User {
-        let decoded  = self.defaults.data(forKey: "loggedUser")
-        let decodedLoggedUser = NSKeyedUnarchiver.unarchiveObject(with: decoded!) as! User
-        print("\n\nFunción readLoggedUser:")
-        print("Name: \(decodedLoggedUser.name)\nLast Name: \(decodedLoggedUser.lastName)\nEmail: \(decodedLoggedUser.email)\nSigned: \(decodedLoggedUser.signedIn)\nID Firebase: \(decodedLoggedUser.idFirebase)")
-        
-        return decodedLoggedUser
-    }
+//    func readLoggedUser() -> User {
+//        let decoded  = self.defaults.data(forKey: "loggedUser")
+//        let decodedLoggedUser = try? NSKeyedArchiver.archivedData(withRootObject: decoded, requiringSecureCoding: true) as! User
+//        //let decodedLoggedUser = NSKeyedUnarchiver.unarchiveObject(with: decoded!) as! User
+//        print("\n\nFunción readLoggedUser:")
+//        print("Name: \(decodedLoggedUser!.name)\nLast Name: \(decodedLoggedUser!.lastName)\nEmail: \(decodedLoggedUser!.email)\nSigned: \(decodedLoggedUser!.signedIn)\nID Firebase: \(decodedLoggedUser!.idFirebase)")
+//        
+//        return decodedLoggedUser!
+//    }
     
     // MARK: - Firebase
     func getUserIdFirebase() -> String {
@@ -54,7 +55,7 @@ class Functions {
             try firebaseAuth.signOut()
             loggedUser.signedIn = false
             saveLoggedUser(loggedUser: loggedUser)
-            _ = readLoggedUser()
+            //_ = readLoggedUser()
         } catch let signOutError as NSError {
             print ("Error signing out: \(signOutError.localizedDescription)")
             showAlert(title: "ERROR", message: signOutError.localizedDescription)
