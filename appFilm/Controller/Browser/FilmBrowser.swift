@@ -24,6 +24,8 @@ class FilmBrowser: UIViewController {
     var index = 0   // Se declara esta variable fuera para que el valor de i se vaya incrementando.
     var array = [FilmModel]()
     var scoreArray = [String]()
+    var titleNew = ""
+    var overview = ""
     
     // MARK: - Life cycle
     override func viewDidLoad() {
@@ -104,13 +106,14 @@ class FilmBrowser: UIViewController {
                 let recomFilmInfo: NSDictionary = recomResultsArray[index] as! NSDictionary
                 // Se cogen los datos deseados del arreglo.
                 let title = recomFilmInfo["title"] as? String
+                titleNew = title!
                 print("\nTitulo recomendado: " + title!)
-                self.titleLabel.text = "\(title!)"
+//                self.titleLabel.text = "\(title!)"
                 index += 1  // Se incrementa el valor de i para que se obtengan más películas al pulsar el botón recomendación.
-                let overview = recomFilmInfo["overview"] as? String // Se coge el dato deseado del arreglo.
-                print("Resumen: " + overview! + "\n")
-                self.overviewTextView.text = "\(overview!)"
-                parrafoMC = overview!   // Texto que se va a pasar a MC
+                overview = (recomFilmInfo["overview"] as? String)! // Se coge el dato deseado del arreglo.
+                print("Resumen: " + overview + "\n")
+//                self.overviewTextView.text = "\(overview!)"
+                parrafoMC = overview   // Texto que se va a pasar a MC
             } catch {
                 print("Error en la obtención de las películas recomendadas")
             }
@@ -190,11 +193,11 @@ class FilmBrowser: UIViewController {
         // ******************************** INICIO SENTIMIENTOS ******************************
         
         print(array.count)
-        for index in 0...(array.count - 1) {
+        for i in 0...(array.count - 1) {
             
-            let overview = array[index].overview
+            let overview = array[i].overview
             let overviewModify = functions.modifyInputMC(input: overview!)
-            let sentimentsUrlString = "https://api.meaningcloud.com/sentiment-2.1?key=\(apiKeyMC)&of=json&txt=\(overviewModify)&model=general&lang=en"
+            let sentimentsUrlString = "http://api.meaningcloud.com/sentiment-2.1?key=\(apiKeyMC)&of=json&txt=\(overviewModify)&model=general&lang=en"
             let sentimentsUrl = URL(string: sentimentsUrlString)
             if sentimentsUrl == nil {
                 print(sentimentsUrl)
@@ -216,6 +219,16 @@ class FilmBrowser: UIViewController {
         }
         
         print(scoreArray)
+        
+        for i in 0...(scoreArray.count-1)  {
+            if scoreArray[i] == "P" {
+                self.titleLabel.text = array[i].name
+                self.overviewTextView.text = array[i].overview
+            } else {
+                self.titleLabel.text = "\(titleNew)"
+                self.overviewTextView.text = "\(overview)"
+            }
+        }
         
         // ******************************** FIN SENTIMIENTOS *********************************
     }

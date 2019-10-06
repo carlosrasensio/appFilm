@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appFilm/Controller/Browser/FilmBrowser.swift"
-            timestampString = "591655892.6456701"
+            timestampString = "592090398.486872"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "218"
-            endingLineNumber = "218"
+            startingLineNumber = "221"
+            endingLineNumber = "221"
             landmarkName = "getRecommendedFilm(filmInput:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,61 +26,124 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appFilm/Controller/Browser/FilmBrowser.swift"
-            timestampString = "591655892.6463749"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "195"
-            endingLineNumber = "195"
-            landmarkName = "getRecommendedFilm(filmInput:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "appFilm/Controller/Browser/FilmBrowser.swift"
-            timestampString = "591655892.646861"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "209"
-            endingLineNumber = "209"
-            landmarkName = "getRecommendedFilm(filmInput:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "appFilm/Controller/Browser/FilmBrowser.swift"
-            timestampString = "591655892.647321"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "197"
-            endingLineNumber = "197"
-            landmarkName = "getRecommendedFilm(filmInput:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "appFilm/Controller/Browser/FilmBrowser.swift"
-            timestampString = "591655892.6477751"
+            timestampString = "592090398.486941"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "198"
             endingLineNumber = "198"
             landmarkName = "getRecommendedFilm(filmInput:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "appFilm/Controller/Browser/FilmBrowser.swift"
+            timestampString = "592090398.4869879"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "200"
+            endingLineNumber = "200"
+            landmarkName = "getRecommendedFilm(filmInput:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "appFilm/Controller/Browser/FilmBrowser.swift"
+            timestampString = "592090398.487064"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "201"
+            endingLineNumber = "201"
+            landmarkName = "getRecommendedFilm(filmInput:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "appFilm/Controller/Browser/FilmBrowser.swift"
+            timestampString = "592090398.4871171"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "208"
+            endingLineNumber = "208"
+            landmarkName = "getRecommendedFilm(filmInput:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "appFilm/Controller/Browser/FilmBrowser.swift"
+            timestampString = "592090398.487168"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "234"
+            endingLineNumber = "234"
+            landmarkName = "getRecommendedFilm(filmInput:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "appFilm.FilmBrowser.getRecommendedFilm(filmInput: Swift.String) -&gt; ()"
+                  moduleName = "appFilm"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/croda/Workspace/TFG/appFilm/Controller/Browser/FilmBrowser.swift"
+                  timestampString = "592090398.6745729"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "234"
+                  endingLineNumber = "234"
+                  offsetFromSymbolStart = "22668">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "appFilm.FilmBrowser.getRecommendedFilm(filmInput: Swift.String) -&gt; ()"
+                  moduleName = "appFilm"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/croda/Workspace/TFG/appFilm/Controller/Browser/FilmBrowser.swift"
+                  timestampString = "592090398.677062"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "234"
+                  endingLineNumber = "234"
+                  offsetFromSymbolStart = "27652">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "appFilm.FilmBrowser.getRecommendedFilm(filmInput: Swift.String) -&gt; ()"
+                  moduleName = "appFilm"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/croda/Workspace/TFG/appFilm/Controller/Browser/FilmBrowser.swift"
+                  timestampString = "592090398.679575"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "234"
+                  endingLineNumber = "234"
+                  offsetFromSymbolStart = "30668">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
