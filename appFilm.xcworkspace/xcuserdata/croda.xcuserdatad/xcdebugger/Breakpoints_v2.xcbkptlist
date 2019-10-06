@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appFilm/Controller/Browser/FilmBrowser.swift"
-            timestampString = "592093582.747583"
+            timestampString = "592094398.3067321"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "200"
@@ -24,7 +24,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appFilm/Controller/Browser/FilmBrowser.swift"
-            timestampString = "592093582.747703"
+            timestampString = "592094398.307212"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "198"
@@ -40,7 +40,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appFilm/Controller/Browser/FilmBrowser.swift"
-            timestampString = "592093582.7477551"
+            timestampString = "592094398.307587"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "200"
@@ -54,7 +54,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appFilm/Controller/Browser/FilmBrowser.swift"
-            timestampString = "592093582.7478"
+            timestampString = "592094398.307876"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "200"
@@ -68,7 +68,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appFilm/Controller/Browser/FilmBrowser.swift"
-            timestampString = "592093582.747851"
+            timestampString = "592094398.308169"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "200"
@@ -82,11 +82,39 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appFilm/Controller/Browser/FilmBrowser.swift"
-            timestampString = "592093582.747892"
+            timestampString = "592094398.308442"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "200"
             endingLineNumber = "200">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "appFilm/Controller/Browser/FilmBrowser.swift"
+            timestampString = "592094398.3087111"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "233"
+            endingLineNumber = "233">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "appFilm/Controller/Browser/FilmBrowser.swift"
+            timestampString = "592094398.308964"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "213"
+            endingLineNumber = "213">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

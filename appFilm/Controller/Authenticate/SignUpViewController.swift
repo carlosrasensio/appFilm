@@ -38,6 +38,12 @@ class SignUpViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Instantiate controllers
+        nameTextFieldController = MDCTextInputControllerUnderline(textInput: nameTextField)
+        lastnameTextFieldController = MDCTextInputControllerUnderline(textInput: lastnameTextField)
+        emailTextFieldController = MDCTextInputControllerUnderline(textInput: emailTextField)
+        passwordTextFieldController = MDCTextInputControllerUnderline(textInput: passwordTextField)
+        repeatPasswordTextFieldController = MDCTextInputControllerUnderline(textInput: repeatPasswordTextField)
     }
     
     // MARK: - Buttons action
@@ -106,12 +112,6 @@ class SignUpViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDele
             }
         }
         
-        // Instantiate controllers
-        nameTextFieldController = MDCTextInputControllerFilled(textInput: nameTextField)
-        lastnameTextFieldController = MDCTextInputControllerFilled(textInput: lastnameTextField)
-        emailTextFieldController = MDCTextInputControllerFilled(textInput: emailTextField)
-        passwordTextFieldController = MDCTextInputControllerFilled(textInput: passwordTextField)
-        repeatPasswordTextFieldController = MDCTextInputControllerFilled(textInput: repeatPasswordTextField)
     }
     
     // MARK: - Google sign up
