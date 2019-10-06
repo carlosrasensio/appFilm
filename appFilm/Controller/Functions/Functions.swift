@@ -113,8 +113,9 @@ class Functions {
                 
             }
         }
+        let outputModify = output.folding(options: .diacriticInsensitive, locale: .current)
         
-        return output
+        return outputModify
         
     }
     
